@@ -1,3 +1,7 @@
+
+// ======================= Ismails =======================
+
+
 // Initialisera varukorgen som en tom array
 let varukorg = JSON.parse(sessionStorage.getItem('varukorg')) || [];
 
@@ -94,6 +98,11 @@ function renderCheckout() {
   sessionStorage.setItem('varukorg', JSON.stringify(savedCart));
 }
 
+function goBack() {
+  window.location.href = 'cart.html'; // Navigera tillbaka till förstasidan
+}
+
+
 // Funktion för att ta bort en specifik produkt från varukorgen på kassasidan
 function removeFromCheckout(index) {
   let savedCart = JSON.parse(sessionStorage.getItem('varukorg')) || [];
@@ -122,3 +131,4 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
+// ======================= Ismails =======================

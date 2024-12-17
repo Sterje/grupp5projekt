@@ -1,3 +1,7 @@
+
+/**********************  ISmails ****************************/
+
+
 /* Grundinställningar */
 * {
     box-sizing: border-box;
@@ -64,6 +68,22 @@ button {
   button:hover {
     background-color: #3498db; /* Keep it the same solid blue */
   }
+
+  #back-btn {
+    background-color: #3498db; /* Blå färg */
+    color: #fff; /* Vit text */
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin: 10px 0;
+  }
+  
+  #back-btn:hover {
+    background-color: #2980b9; /* Mörkare blå vid hover */
+  }
+  
   
   
   
@@ -131,4 +151,4 @@ button {
     font-weight: bold;
     font-size: 0.9rem;
   }
-  
+  /**********************  ISmails ****************************/
