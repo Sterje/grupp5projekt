@@ -57,6 +57,12 @@ function goToCheckout() {
 
 // ======================= Kassasidans Funktioner =======================
 
+// Funktion för att gå tillbaka till varukorgssidan
+function goBackToCart() {
+  window.location.href = 'cart.html'; // Navigera till varukorgssidan
+}
+
+
 // Funktion för att visa varukorgen på kassasidan
 function renderCheckout() {
   const checkoutItems = document.getElementById('checkout-items'); // Lista med produkter
@@ -123,8 +129,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-
-
 // Funktion som kommer visa en bekräftelseruta när kunden fgör en beställning 
 
 function orderOfConfirmation(message) {
@@ -141,6 +145,9 @@ function orderOfConfirmation(message) {
         confirmView.remove();
     }, 3000);
 }
+
+
+
 
 function popup () {
         myPopup.classList.add("show");
