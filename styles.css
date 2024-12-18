@@ -1,3 +1,4 @@
+
 /* Grundinställningar */
 
   
@@ -269,6 +270,7 @@ a {
 
 }
 
+<<<<<<< HEAD
 img {
     width: 100%;
     max-width: 300px;
@@ -276,3 +278,5 @@ img {
     border-radius: 8px;
     margin-bottom: 10px;
 }
+=======
+>>>>>>> ac40d8bc499fbc9273283ef9c4aadcb52985b34d
