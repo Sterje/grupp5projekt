@@ -1,4 +1,88 @@
 
+
+.page {
+    font-family: Arial, sans-serif;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 10px;
+    background-color: #f5f5f5;
+}
+
+.featured {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 15px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+/* Using a nice tri-colored gradient for the backgrounds of featured food and drink. */
+.food, .drink {
+    text-align: center;
+    width: 100%;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    background: linear-gradient(
+        135deg,
+        #ff6b6b 0%,
+        #ffffff 50%,
+        #4a90e2 100%
+    );
+    border: 2px solid white;
+}
+
+.food-drink-name {
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+/* For tablets and larger. */
+@media screen and (min-width: 768px) {
+    section {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: stretch;
+        gap: 30px;
+    }
+
+    article {
+        width: 50%;
+    }
+}
+
+/* For smaller screens. */
+@media screen and (max-width: 320px) {
+    body {
+        padding: 5px;
+    }
+
+    section {
+        padding: 10px;
+    }
+
+    article {
+        padding: 10px;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+    }
+
+    h3 {
+        font-size: 1rem;
+    }
+}
+
 /* Grundinställningar */
 
   
@@ -278,5 +362,6 @@ img {
     border-radius: 8px;
     margin-bottom: 10px;
 }
+
 
 
