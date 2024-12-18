@@ -6,30 +6,31 @@
   <title>Kassan</title>
   <link rel="stylesheet" href="styles.css"> <!-- Samma CSS som första sidan -->
 </head>
-<body>
+<body class="checkout-body">
   <!-- Sidhuvud -->
-  <header>
-    <h1>Din Varukorg - Kassasidan</h1>
+  <header class="checkout-header">
+    <h1 class="page-title">Din Varukorg - Kassasidan</h1>
   </header>
 
   <!-- Huvudinnehåll -->
-  <main>
-    <section id="checkout-list">
-      <h2>Valda Produkter</h2>
-      <ul id="checkout-items"></ul> <!-- Lista för att visa produkter -->
-      <p>Totalt: <span id="checkout-total">0</span> kr</p> <!-- Totalpris -->
-      <button class="clear" onclick="clearCheckout()">Töm Varukorgen</button>
-      <button id="back-btn" onclick="goBack()">Tillbaka</button>
+  <main id="checkout-main">
+    <section id="checkout-list" class="checkout-section">
+      <h2 class="section-title">Valda Produkter</h2>
+      <ul id="checkout-items" class="product-list"></ul> <!-- Lista för att visa produkter -->
+      <p class="total-price">Totalt: <span id="checkout-total" class="total-amount">0</span> kr</p> <!-- Totalpris -->
+      <button onclick="goBackToCart()" class="back-button"> Gå Tillbaka</button>
 
+      <button id="clear-checkout" class="clear-button" onclick="clearCheckout()">Töm Varukorgen</button>
     </section>
   </main>
 
   <!-- Sidfot -->
-  <footer>
-    <p>&copy; 2024 Taverna</p>
+  <footer class="checkout-footer">
+    <p class="footer-text">&copy; 2024 Taverna</p>
   </footer>
 
   <!-- JavaScript -->
   <script src="script.js"></script> <!-- Samma JavaScript-fil -->
 </body>
 </html>
+

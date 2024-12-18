@@ -1,7 +1,4 @@
 
-// ======================= Ismails =======================
-
-
 // Initialisera varukorgen som en tom array
 let varukorg = JSON.parse(sessionStorage.getItem('varukorg')) || [];
 
@@ -60,6 +57,12 @@ function goToCheckout() {
 
 // ======================= Kassasidans Funktioner =======================
 
+// Funktion för att gå tillbaka till varukorgssidan
+function goBackToCart() {
+  window.location.href = 'cart.html'; // Navigera till varukorgssidan
+}
+
+
 // Funktion för att visa varukorgen på kassasidan
 function renderCheckout() {
   const checkoutItems = document.getElementById('checkout-items'); // Lista med produkter
@@ -98,11 +101,6 @@ function renderCheckout() {
   sessionStorage.setItem('varukorg', JSON.stringify(savedCart));
 }
 
-function goBack() {
-  window.location.href = 'cart.html'; // Navigera tillbaka till förstasidan
-}
-
-
 // Funktion för att ta bort en specifik produkt från varukorgen på kassasidan
 function removeFromCheckout(index) {
   let savedCart = JSON.parse(sessionStorage.getItem('varukorg')) || [];
@@ -130,5 +128,3 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCart();
   }
 });
-
-// ======================= Ismails =======================
