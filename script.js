@@ -142,8 +142,6 @@ function orderOfConfirmation(message) {
     }, 3000);
 }
 
-});
-
 function popup () {
         myPopup.classList.add("show");
     }
