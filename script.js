@@ -1,3 +1,4 @@
+
 // Funktion som kommer visa en bekräftelseruta när kunden fgör en beställning 
 
 function orderOfConfirmation(message) {
@@ -15,8 +16,29 @@ function orderOfConfirmation(message) {
     }, 3000);
 }
 
-//Funktionen ska användas när en order blivit bekräftad 
-//Så när beställningslogiken blivit triggad av en bekräftelse 
-document.getElementById("test").addEventListener("click", () => {
-    orderOfConfirmation("din beställning har nu blivit bekräftad!");
 });
+
+function popup () {
+        myPopup.classList.add("show");
+    }
+;
+closePopup.addEventListener(
+    "click",
+    function () {
+        myPopup.classList.remove(
+            "show"
+        );
+    }
+);
+window.addEventListener(
+    "click",
+    function (event) {
+        if (event.target == myPopup) {
+            myPopup.classList.remove(
+                "show"
+            );
+        }
+    }
+);
+
+popup()
