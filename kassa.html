@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kassan</title>
+  <link rel="stylesheet" href="styles.css"> <!-- Samma CSS som första sidan -->
+</head>
+<body>
+  <!-- Sidhuvud -->
+  <header>
+    <h1>Din Varukorg - Kassasidan</h1>
+  </header>
+
+  <!-- Huvudinnehåll -->
+  <main>
+    <section id="checkout-list">
+      <h2>Valda Produkter</h2>
+      <ul id="checkout-items"></ul> <!-- Lista för att visa produkter -->
+      <p>Totalt: <span id="checkout-total">0</span> kr</p> <!-- Totalpris -->
+      <button class="clear" onclick="clearCheckout()">Töm Varukorgen</button>
+    </section>
+  </main>
+
+  <!-- Sidfot -->
+  <footer>
+    <p>&copy; 2024 Taverna</p>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="script.js"></script> <!-- Samma JavaScript-fil -->
+</body>
+</html>
