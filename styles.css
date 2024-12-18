@@ -17,11 +17,14 @@
 
 .featured {
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     gap: 20px;
     padding: 15px;
     max-width: 600px;
     margin: 0 auto;
+    background: url(img/us-flag-7468031_1280.jpg);
+    background-position: center;
+    background-size: cover;
 }
 /* Using a nice tri-colored gradient for the backgrounds of featured food and drink. */
 .food, .drink {
@@ -280,12 +283,12 @@ button {
     
 }
 
-.featured {
-    height: 30vh;
+/* .featured {
+    height: 50vh;
     background: url(img/us-flag-7468031_1280.jpg);
     background-position: top;
     background-size: cover;
-}
+} */
 
 .info {
     padding: 1rem;
