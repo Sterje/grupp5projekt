@@ -20,7 +20,7 @@ section {
     max-width: 600px;
     margin: 0 auto;
 }
-
+/* The featured food/drink will have a nice tri-colored gradient. */
 article {
     text-align: center;
     width: 100%;

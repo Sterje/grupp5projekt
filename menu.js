@@ -195,22 +195,22 @@ const db = {
     }
   }
 
-  const mainDishes = [...db.bbqs, ...db.burgers];
+const mainDishes = [...db.bbqs, ...db.burgers];
 const drinkItems = db.drinks;
 
 function getRandomItem(array) {
     return array[Math.floor(Math.random() * array.length)];
 }
-
+// Will grab a random item from the specified food lists and the specified drinks list.
 function displayFeaturedItems() {
     const featuredFood = getRandomItem(mainDishes);
     const featuredDrink = getRandomItem(drinkItems);
-
+// Grabs a food item from bbqs list or burgers list and shows the image and name.
     document.getElementById('featured-food').innerHTML = `
         <img src="${featuredFood.img}" alt="${featuredFood.name}">
         <h3>${featuredFood.name}</h3>
     `;
-
+// Grabs a drink item from the drinks list and shows the image and name.
     document.getElementById('featured-drink').innerHTML = `
         <img src="${featuredDrink.img}" alt="${featuredDrink.name}">
         <h3>${featuredDrink.name}</h3>
