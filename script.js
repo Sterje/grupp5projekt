@@ -118,16 +118,34 @@ function clearCheckout() {
 
 // ======================= Initiering =======================
 
-// Kör vid sidladdning
 document.addEventListener('DOMContentLoaded', () => {
   if (window.location.href.includes('kassa.html')) {
     // Om vi är på kassasidan
     renderCheckout();
+
+    // Kontrollera om ett bordnummer redan finns
+    let bordNummer = sessionStorage.getItem('bordNummer');
+
+    // Om inget bordnummer finns, generera ett nytt
+    if (!bordNummer) {
+      bordNummer = Math.floor(Math.random() * 12) + 1; // 1-12
+      console.log('Genererat bordnummer:', bordNummer); // För felsökning
+      sessionStorage.setItem('bordNummer', bordNummer); // Spara bordnummer i sessionStorage
+    }
+
+    // Visa bordnumret på sidan
+    const bordElement = document.getElementById('bord-number');
+    if (bordElement) {
+      bordElement.textContent = `Bord: ${bordNummer}`; // Visa det sparade bordnumret
+    }
   } else {
     // Om vi är på förstasidan
     updateCart();
   }
 });
+
+
+
 
 // Funktion som kommer visa en bekräftelseruta när kunden fgör en beställning 
 

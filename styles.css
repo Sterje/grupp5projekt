@@ -1,34 +1,34 @@
 
 /**********************  ISmails ****************************/
 /* Grundinställningar */
-body.page-body, body.checkout-body {
+.cart-body .checkout-body {
   font-family: Arial, sans-serif;
   margin: 20px 20px 90px;
   background-color: #f9f9f9;
 }
 
-body.page-body h1, body.page-body h2,
-body.checkout-body h1, body.checkout-body h2 {
+.cart-body h1, .page-body h2,
+.checkout-body h1, .checkout-body h2 {
   text-align: center;
 }
 
 /* Anpassning för mobila enheter */
 @media screen and (max-width: 768px) {
-  body.page-body header, body.checkout-body header {
+  .cart-body header, .checkout-body header {
     flex-direction: column;
     align-items: flex-start;
   }
 
 
-    body.page-body, body.checkout-body {
+  .cart-body, .checkout-body {
     font-size: 16px;
   }
 }
 
 @media screen and (max-width: 480px) {
-  body.page-body header h1, body.checkout-body header h1 {
+  .cart-body header h1, .checkout-body header h1 {
     font-size: 20px;
-  
+  }
   @media screen and (max-width: 480px) {
     header h1 {
       font-size: 20px;
@@ -36,7 +36,6 @@ body.checkout-body h1, body.checkout-body h2 {
     body {
       font-size: 14px;
     }
-  }} */
 
 
 
@@ -46,19 +45,19 @@ body.checkout-body h1, body.checkout-body h2 {
     margin: 20px auto;
     max-width: 600px;
   }
-  body.page-body, body.checkout-body {
+  .cart-body, .checkout-body {
     font-size: 14px;
   }
 }
 
 /* Varukorg och produktlista */
-body.page-body #product-list, body.page-body #cart,
-body.checkout-body #checkout-list {
+.cart-body #product-list, .cart-body #cart,
+.checkout-body #checkout-list {
   margin: 20px auto;
   max-width: 600px;
 }
 
-body.page-body .product {
+.cart-body .product {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -70,7 +69,7 @@ body.page-body .product {
 }
 
 /* General button styling */
-body.page-body button, body.checkout-body button {
+.cart-body button, .checkout-body button {
   background-color: #447cff;
   color: #fff;
   border: none;
@@ -92,29 +91,29 @@ body.page-body button, body.checkout-body button {
 }
 
 /* Remove all hover effects */
-body.page-body button:hover, body.checkout-body button:hover {
+.cart-body button:hover, .checkout-body button:hover {
   background-color: #3498db; /* Keep it the same solid blue */
 }
 
 /* Specifik stil för knappar */
-body.page-body #cart-items button {
+.cart-body #cart-items button {
   background-color: #e74c3c; /* Röd färg */
 }
 
-body.page-body #cart-items button:hover {
+.cart-body #cart-items button:hover {
   background-color: #c0392b;
 }
 
-body.page-body #cart button.clear {
+.cart-body #cart button.clear {
   background-color: #3498db; /* Blå färg */
 }
 
-body.page-body #cart button.clear:hover {
+ .cart-body #cart button.clear:hover {
   background-color: #2980b9;
 }
 
 /* Stil för varukorgen längst ner */
-body.page-body #cart {
+.cart-body #cart {
   position: fixed;
   bottom: 0;
   left: 0;
@@ -129,7 +128,7 @@ body.page-body #cart {
   overflow-y: auto;
 }
 
-body.page-body #cart h2 {
+.cart-body #cart h2 {
   margin: 0 0 8px;
   font-size: 1rem;
   text-align: center;
@@ -138,13 +137,13 @@ body.page-body #cart h2 {
   padding-bottom: 5px;
 }
 
-body.page-body #cart-items {
+.cart-body #cart-items {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-body.page-body #cart-items li {
+.cart-body #cart-items li {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -154,36 +153,142 @@ body.page-body #cart-items li {
   padding-bottom: 5px;
 }
 
-body.page-body #cart p {
+.cart-body #cart p {
   margin: 10px 0 5px;
   text-align: center;
   font-weight: bold;
   font-size: 0.9rem;
 }
 
-body.checkout-body #checkout-list .product-list {
+/* ==================== Kassasidan Styling ==================== */
+
+/* Kroppsstyling */
+.checkout-body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  padding: 20px;
+  margin: 0;
+}
+
+/* Sidhuvud */
+.checkout-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.checkout-header .page-title {
+  font-size: 2rem;
+  color: #447cff;
+}
+
+/* Sektion för kassa */
+.checkout-section {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto 20px auto;
+}
+
+/* Produkter i varukorgen */
+.checkout-section .product-list {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-body.checkout-body #checkout-list .total-price {
-  text-align: center;
+.checkout-section .product-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.checkout-section .product-list li:last-child {
+  border-bottom: none;
+}
+
+.checkout-section .product-list img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-right: 15px;
+}
+
+.checkout-section .product-list div {
+  display: flex;
+  align-items: center;
+}
+
+/* Totalpris */
+.checkout-section .total-price {
+  font-size: 1.5rem;
   font-weight: bold;
-  font-size: 0.9rem;
+  text-align: center;
+  margin-top: 20px;
+  color: #2562f2;
 }
 
-body.checkout-body #checkout-list .clear-button {
-  background-color: #3498db;
+/* Knappar */
+.checkout-section .back-button,
+.checkout-section .clear-button {
+  background-color: #2562f2;
   color: white;
+  padding: 10px 20px;
   border: none;
-  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 1rem;
   cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 10px;
 }
 
-body.checkout-body #checkout-list .clear-button:hover {
-  background-color: #2980b9;
+.checkout-section .back-button:hover {
+  background-color: #1d4dda;
 }
+
+.checkout-section .clear-button {
+  background-color: #e74c3c;
+}
+
+.checkout-section .clear-button:hover {
+  background-color: #c0392b;
+}
+
+/* Bordnummer */
+.checkout-section .bord-info {
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Sidfot */
+.checkout-footer {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 0.9rem;
+  color: #777;
+}
+
+/* Sidfot längst ner på sidan */
+.checkout-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #f4f4f9;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 0.9rem;
+  color: #777;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Skugga ovanför sidfoten */
+}
+
 
   /**********************  ISmails ****************************/
 
@@ -227,9 +332,10 @@ body.checkout-body #checkout-list .clear-button:hover {
     font-family: Arial, Helvetica, sans-serif;
 
 }
-/* Test  */
+
 
   * {
+
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -255,7 +361,7 @@ body {
 
 .featured {
     display: flex;
-    /* flex-direction: column; */
+    flex-direction: row;
     gap: 20px;
     padding: 15px;
     max-width: 600px;
@@ -267,7 +373,7 @@ body {
 /* Using a nice tri-colored gradient for the backgrounds of featured food and drink. */
 .food, .drink {
     text-align: center;
-    width: 100%;
+    width: 50%;
     padding: 15px;
     border-radius: 12px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -360,12 +466,11 @@ img {
     
 }
 
-/* .featured {
+
+.featured {
     height: 50vh;
-    background: url(img/us-flag-7468031_1280.jpg);
-    background-position: top;
-    background-size: cover;
-} */
+    width: 100%;
+}
 
 .info {
     padding: 1rem;
@@ -446,6 +551,29 @@ img {
     margin-bottom: 10px;
 }
 
+/* Styling for the reviews page. */
+
+.rec-body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: linear-gradient(to top, rgb(2, 2, 132), rgb(178, 3, 3), rgb(255, 228, 228));
+}
+
+.rec-header {
+  color: black;
+  padding: 10px 20px;
+  text-align: center;
+}
+
+.rec-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000000;
+}
 
 
 section { 
@@ -508,4 +636,89 @@ h2 {
 }
 
 
+
+=======
+.rec-main {
+  max-width: 800px;
+  margin: 20px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(
+    135deg,
+    #ff6b6b 0%,
+    #ffffff 50%,
+    #4a90e2 100%
+);
+}
+
+.rec-h1, .rec-h2 {
+  text-align: center;
+}
+
+.rec-h3 {
+  margin: 0 0 5px;
+  text-align: center;
+}
+
+.rec-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px auto;
+  text-align: center;
+  width: 100%;
+  max-width: 800px;
+}
+
+.rec-article, .rec-article-last:last-of-type {
+  padding: 10px;
+  margin: 15px auto;
+  border-radius: 5px;
+  text-align: center;
+  max-width: 600px;
+  border: 5px dotted red;
+}
+
+meter {
+  font-size: 1rem;
+  vertical-align: middle;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.rec-footer {
+  text-align: center;
+  padding: 10px;
+  color: white;
+  background-color: #000000;
+}
+
+.rec-article p, .rec-article-last p {
+  text-align: center;
+}
+
+.rec-header p {
+  text-align: center;
+}
+
+.rec-p {
+  font-size: 18px;
+}
+
+.rec-p-grade {
+  font-size: 18px;
+}
+
+.stars {
+  font-size: 20px;
+  color: gold;
+  padding-left: 10px;
+  text-shadow: 
+  1px 1px 2px black,         
+  -1px -1px 2px black, 
+  1px -1px 2px black, 
+  -1px 1px 2px black;
+}
 
