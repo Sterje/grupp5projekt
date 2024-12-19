@@ -6,19 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Taverna American BBQ</title>
 </head>
-<body>
+<body class="page">
     <header class="header">
         <section class="logo">
             <img src="img/logo.png" alt="Taverna logo">
         </section>
     </header>
     <section class="featured" id="featured">
-        <article>
-            <h2>Featured Food</h2>
+        <article class="food">
+            <h2 class="food-drink-name">Featured Food</h2>
             <p id="featured-food"></p>
         </article>
-        <article>
-            <h2>Featured Drink</h2>
+        <article class="drink">
+            <h2 class="food-drink-name">Featured Drink</h2>
             <p id="featured-drink"></p>
         </article>
     </section>
@@ -26,41 +26,28 @@
    
         <nav class="nav">
             <ul class="links">
-                <li><a href="#bbq-h3">BBQ</a></li>
-                <li><a href="#burgers-h3">Burgers</a></li>
-                <li><a href="#drinks-h3">Drinks</a></li>
-                <li><a href="#desserts-h3">Desserts</a></li>
+                <li><a href="#bbqs">BBQ</a></li>
+                <li><a href="#burgers">Burgers</a></li>
+                <li><a href="#drinks">Drinks</a></li>
+                <li><a href="#desserts">Desserts</a></li>
             </ul>    
         </nav>
-        <article class="category">
-            <h3 class="h3" id="bbq-h3">BBQ</h3>
-        </article>
-        <article class="food-content" id="bbq">
-            <!-- Här hamnar BBQ innehållet-->
-             <!-- Jag tänker att när vi loopar igenom listan skapar vi en section för varje rätt -->
-        </article>
-        <article class="category">
-            <h3 class="h3" id="burgers-h3">Burgers</h3>
-        </article>
-        <article class="food-content" id="burgers">
-            <!-- Här hamnar burgers innehållet-->
-            <!-- Jag tänker att när vi loopar igenom listan skapar vi en section för varje rätt -->
-        </article>
-        <article class="category">
-            <h3 class="h3" id="drinks-h3">Drinks</h3>
-        </article>
-        <article class="food-content" id="drinks">
-            <!-- Här hamnar drinks innehållet-->
-            <!-- Jag tänker att när vi loopar igenom listan skapar vi en section för varje rätt -->
-        </article>
-        <article class="category">
-            <h3 class="h3" id="desserts-h3">Desserts</h3>
-        </article>
-        <article class="food-content" id="desserts">
-            <!-- Här hamnar desserts innehållet-->
-            <!-- Jag tänker att när vi loopar igenom listan skapar vi en section för varje rätt -->
-        </article>
-    </section>
+        <section id="bbqs"> 
+            <h2>BBQs</h2> 
+            <div class="category"></div> 
+        </section> 
+        <section id="burgers"> 
+            <h2>Burgers</h2> 
+            <div class="category"></div> 
+        </section> 
+        <section id="desserts"> 
+            <h2>Desserts</h2> 
+            <div class="category"></div> 
+        </section> 
+        <section id="drinks"> 
+            <h2>Drinks</h2> 
+            <div class="category"></div> 
+        </section>
 
     <section id="myPopup" class="popup">
         <section class="popup-content">
@@ -81,6 +68,5 @@
     <script src="db.js"></script>
     <script src="menu.js"></script>
 
->>>>>>> origin
 </body>
 </html>
