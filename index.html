@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
 <head>
     <link rel="stylesheet" href="styles.css">
     <meta charset="UTF-8">
@@ -14,15 +14,26 @@
     </header>
     <section class="featured" id="featured">
         <article class="food">
-            <h2 class="food-drink-name">Featured Food</h2>
+            <h2 class="food-drink-name">Månadens Maträtt</h2>
             <p id="featured-food"></p>
         </article>
         <article class="drink">
-            <h2 class="food-drink-name">Featured Drink</h2>
+            <h2 class="food-drink-name">Månadens Drink</h2>
             <p id="featured-drink"></p>
         </article>
     </section>
     <section class="wrapper">
+        <!-- Search function for our menu items. -->
+        <form role="search" class="search" onsubmit="return false;">
+            <!-- <label for="search">Sök i menyn:</label> -->
+            <input type="search" id="search" name="search" placeholder="Sök i menyn...">
+        </form>
+    
+        <!-- Shows the results of the search. -->
+        <section id="search-results">
+            
+        </section>
+    
    
         <nav class="nav">
             <ul class="links">
@@ -33,22 +44,22 @@
                 <li><a href="recensioner.html">Recensioner</a></li>
             </ul>    
         </nav>
-        <section id="bbqs"> 
-            <h2>BBQs</h2> 
-            <div class="category"></div> 
-        </section> 
-        <section id="burgers"> 
-            <h2>Burgers</h2> 
-            <div class="category"></div> 
-        </section> 
-        <section id="desserts"> 
-            <h2>Desserts</h2> 
-            <div class="category"></div> 
-        </section> 
-        <section id="drinks"> 
-            <h2>Drinks</h2> 
-            <div class="category"></div> 
-        </section>
+    <section id="bbqs"> 
+        <h2>BBQs</h2> 
+        <div class="category"></div> 
+    </section> 
+    <section id="burgers"> 
+        <h2>Burgers</h2> 
+        <div class="category"></div> 
+    </section> 
+    <section id="desserts"> 
+        <h2>Desserts</h2> 
+        <div class="category"></div> 
+    </section> 
+    <section id="drinks"> 
+        <h2>Drinks</h2> 
+        <div class="category"></div> 
+    </section>
 
     <section id="myPopup" class="popup">
         <section class="popup-content">
@@ -65,9 +76,10 @@
             <button id="closePopup">Fortsätt</button>
         </section>
     </section>
-    <script src="script.js"></script>
+    
     <script src="db.js"></script>
     <script src="menu.js"></script>
+    <script src="script.js"></script>
 
 </body>
 </html>
