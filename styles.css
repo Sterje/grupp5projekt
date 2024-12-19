@@ -1,7 +1,5 @@
 
-/* Test  */
-
-  * {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -19,7 +17,7 @@
 
 .featured {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 20px;
     padding: 15px;
     max-width: 600px;
@@ -28,7 +26,7 @@
 /* Using a nice tri-colored gradient for the backgrounds of featured food and drink. */
 .food, .drink {
     text-align: center;
-    width: 100%;
+    width: 50%;
     padding: 15px;
     border-radius: 12px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -283,7 +281,8 @@ button {
 }
 
 .featured {
-    height: 30vh;
+    height: 50vh;
+    width: 100%;
     background: url(img/us-flag-7468031_1280.jpg);
     background-position: top;
     background-size: cover;
@@ -366,5 +365,110 @@ img {
     margin-bottom: 10px;
 }
 
+/* Styling for the reviews page. */
 
+.rec-body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: linear-gradient(to top, rgb(2, 2, 132), rgb(178, 3, 3), rgb(255, 228, 228));
+}
 
+.rec-header {
+  color: black;
+  padding: 10px 20px;
+  text-align: center;
+}
+
+.rec-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000000;
+}
+
+.rec-main {
+  max-width: 800px;
+  margin: 20px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(
+    135deg,
+    #ff6b6b 0%,
+    #ffffff 50%,
+    #4a90e2 100%
+);
+}
+
+.rec-h1, .rec-h2 {
+  text-align: center;
+}
+
+.rec-h3 {
+  margin: 0 0 5px;
+  text-align: center;
+}
+
+.rec-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px auto;
+  text-align: center;
+  width: 100%;
+  max-width: 800px;
+}
+
+.rec-article, .rec-article-last:last-of-type {
+  padding: 10px;
+  margin: 15px auto;
+  border-radius: 5px;
+  text-align: center;
+  max-width: 600px;
+  border: 5px dotted red;
+}
+
+meter {
+  font-size: 1rem;
+  vertical-align: middle;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.rec-footer {
+  text-align: center;
+  padding: 10px;
+  color: white;
+  background-color: #000000;
+}
+
+.rec-article p, .rec-article-last p {
+  text-align: center;
+}
+
+.rec-header p {
+  text-align: center;
+}
+
+.rec-p {
+  font-size: 18px;
+}
+
+.rec-p-grade {
+  font-size: 18px;
+}
+
+.stars {
+  font-size: 20px;
+  color: gold;
+  padding-left: 10px;
+  text-shadow: 
+  1px 1px 2px black,         
+  -1px -1px 2px black, 
+  1px -1px 2px black, 
+  -1px 1px 2px black;
+}
