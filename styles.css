@@ -9,144 +9,6 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.page {
-    font-family: Arial, sans-serif;
-    max-width: 100%;
-    margin: 0 auto;
-    padding: 10px;
-    background-color: #f5f5f5;
-}
-
-.featured {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding: 15px;
-    max-width: 600px;
-    margin: 0 auto;
-}
-/* Using a nice tri-colored gradient for the backgrounds of featured food and drink. */
-.food, .drink {
-    text-align: center;
-    width: 100%;
-    padding: 15px;
-    border-radius: 12px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    background: linear-gradient(
-        135deg,
-        #ff6b6b 0%,
-        #ffffff 50%,
-        #4a90e2 100%
-    );
-    border: 2px solid white;
-}
-
-.food-drink-name {
-    margin-bottom: 15px;
-    font-size: 1.5rem;
-    color: #333;
-}
-
-img {
-    width: 100%;
-    max-width: 300px;
-    height: auto;
-    border-radius: 8px;
-    margin-bottom: 10px;
-}
-
-/* For tablets and larger. */
-@media screen and (min-width: 768px) {
-    section {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: stretch;
-        gap: 30px;
-    }
-
-    article {
-        width: 50%;
-    }
-}
-
-/* For smaller screens. */
-@media screen and (max-width: 320px) {
-    body {
-        padding: 5px;
-    }
-
-    section {
-        padding: 10px;
-    }
-
-    article {
-        padding: 10px;
-    }
-
-    h2 {
-        font-size: 1.2rem;
-    }
-
-    h3 {
-        font-size: 1rem;
-    }
-}
-
-/* Grundinställningar */
-.cart-body .checkout-body {
-  font-family: Arial, sans-serif;
-  margin: 20px 20px 90px;
-  background-color: #f9f9f9;
-}
-
-.cart-body h1, .page-body h2,
-.checkout-body h1, .checkout-body h2 {
-  text-align: center;
-}
-
-/* Anpassning för mobila enheter */
-@media screen and (max-width: 768px) {
-  .cart-body header, .checkout-body header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-
-  .cart-body, .checkout-body {
-    font-size: 16px;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .cart-body header h1, .checkout-body header h1 {
-    font-size: 20px;
-  }
-  @media screen and (max-width: 480px) {
-    header h1 {
-      font-size: 20px;
-    }
-    body {
-      font-size: 14px;
-    }
-  }
-
-  /* Varukorg och produktlista */
-  #product-list, #cart {
-    margin: 20px auto;
-    max-width: 600px;
-  }
-  .cart-body, .checkout-body {
-    font-size: 14px;
-  }
-}
-
-/* Varukorg och produktlista */
-.cart-body #product-list, .cart-body #cart,
-.checkout-body #checkout-list {
-  margin: 20px auto;
-  max-width: 600px;
-}
-
 /* Popup-container */
 .mini-popup {
   position: fixed;
@@ -236,7 +98,7 @@ img {
 
 /* Produkter i varukorgen */
 .checkout-section .product-list {
-  list-style: none
+  list-style: none;
   transition: background-color 0.3s ease;
   width: 100%;
 }
@@ -311,8 +173,6 @@ img {
   margin: 20px 0;
 }
 
-
-
   /**********************  ISmails ****************************/
 .confirmView {
     position: fixed;
@@ -343,15 +203,6 @@ img {
     }
   }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    line-height: 1.5rem;
-    font-family: Arial, Helvetica, sans-serif;
-
-}
-
 body {
     background-image: url(img/us-flag-7468031_12802.jpg);
     background-size: cover;
@@ -367,9 +218,7 @@ body {
     padding: 15px;
     max-width: 600px;
     margin: 0 auto;
-    /* background: url(img/us-flag-7468031_1280.jpg); */
-    background-position: center;
-    background-size: cover;
+    
 }
 /* Using a nice tri-colored gradient for the backgrounds of featured food and drink. */
 .food, .drink {
@@ -404,6 +253,7 @@ img {
 .wrapper {
   display: flex;
   flex-direction: column;
+  
 }
 
 .header {
@@ -419,8 +269,8 @@ img {
 }
 
 .logo img {
-    height: 30%;
-    width: 30%;
+    height: 50%;
+    width: 50%;
 }
 
 .info {
@@ -435,9 +285,11 @@ img {
     background-color: rgb(74, 144, 226, 0.7);
 }
 
-.category {
-    display: flex;
-    justify-content: center;
+.food-category {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 20px;
 }
 
 ul {
@@ -502,7 +354,6 @@ a {
 
 }
 
-
 img {
     width: 100%;
     max-width: 300px;
@@ -535,25 +386,11 @@ img {
   background-color: #000000;
 }
 
-
-section { 
-    margin-bottom: 40px; 
-    width: 100%; 
-    max-width: 1200px; 
-} 
-
 h2 { 
     font-size: 2rem;
     text-align: center; 
     color: #000000; 
     margin-bottom: 20px; 
-} 
-
-.category { 
-    display: flex; 
-    flex-wrap: wrap; 
-    gap: 20px; 
-    justify-content: center; 
 } 
 
 .product { 
@@ -594,134 +431,6 @@ h2 {
 .product .rate { 
     color: #ff9900; 
 }
-
-
-
-.rec-main {
-  max-width: 800px;
-  margin: 20px auto;
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  background: linear-gradient(
-    135deg,
-    #ff6b6b 0%,
-    #ffffff 50%,
-    #4a90e2 100%
-);
-}
-
-.rec-h1, .rec-h2 {
-  text-align: center;
-}
-
-.rec-h3 {
-  margin: 0 0 5px;
-  text-align: center;
-}
-
-.rec-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 20px auto;
-  text-align: center;
-  width: 100%;
-  max-width: 800px;
-}
-
-.rec-article, .rec-article-last:last-of-type {
-  padding: 10px;
-  margin: 15px auto;
-  border-radius: 5px;
-  text-align: center;
-  max-width: 600px;
-  border: 5px dotted red;
-}
-
-meter {
-  font-size: 1rem;
-  vertical-align: middle;
-  padding-left: 10px;
-  padding-right: 10px;
-}
-
-.rec-footer {
-  text-align: center;
-  padding: 10px;
-  color: white;
-  background-color: #000000;
-}
-
-.rec-article p, .rec-article-last p {
-  text-align: center;
-}
-
-.rec-header p {
-  text-align: center;
-}
-
-.rec-logo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #000000;
-}
-
-h2 { 
-    font-size: 2rem;
-    text-align: center; 
-    color: #000000; 
-    margin-bottom: 20px; 
-} 
-
-.category { 
-    display: flex; 
-    flex-wrap: wrap; 
-    gap: 20px; 
-    justify-content: center; 
-} 
-
-.product { 
-    border: 1px solid #ddd; 
-    padding: 20px; 
-    background: linear-gradient(
-        135deg,
-        #ff6b6b 0%,
-        #ffffff 50%,
-        #4a90e2 100%
-    );
-    border-radius: 5px; 
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
-    max-width: 300px; 
-    text-align: center; 
-} 
-
-.product img { 
-    max-width: 100%; 
-    border-radius: 5px;
-} 
-
-.product h2 { 
-    font-size: 20px; 
-    margin: 10px 0; 
-} 
-
-.product p { 
-    color: #555; 
-} 
-
-.product .price { 
-    font-size: 18px; 
-    color: #b12704; 
-    margin: 10px 0; 
-} 
-
-.product .rate { 
-    color: #ff9900; 
-}
-
 
 /* Daniels styling for the review page. */
 
@@ -831,9 +540,6 @@ meter {
     font-size: 14px;
     line-height: 1.5;
   }
-}
-
-
 }
 
 /* Daniels search fucntion styling. */
