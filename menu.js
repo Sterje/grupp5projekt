@@ -484,63 +484,12 @@ function createProductCard(product) {
   productDiv.appendChild(buyButton);
 //Returnerar diven med innehåll
 return productDiv; 
-
-    const productDiv = document.createElement('div');
-    //Ger productDiv class namn product för styling
-    productDiv.className = 'product'; 
-    //Skapar ett img element
-    const img = document.createElement('img');
-    //Src till bilden 
-    img.src = product.img; img.alt = product.name;
-    //Som läggs till i productDiv
-    productDiv.appendChild(img); 
-
-    //Skapar en h2 som kommer innehålla namnet på rätten
-    const name = document.createElement('h2'); 
-    name.textContent = product.name;
-    productDiv.appendChild(name); 
-  
-    //Skapar en p som kommer innehålla beskrivning
-    const description = document.createElement('p'); 
-    description.textContent = product.dsc; 
-    productDiv.appendChild(description);
-
-    //Skapar en div för pris
-    const price = document.createElement('div'); 
-    price.className = 'price';
-    //Priset läggs till price
-    price.textContent = `$${product.price.toFixed(2)}`; 
-    productDiv.appendChild(price); 
-  
-    //Skapar en div som ska innehålla rating
-    const rate = document.createElement('div'); 
-    rate.className = 'rate'; 
-    //Antal stjärnor läggs till
-    rate.textContent = `Rating: ${'⭐'.repeat(product.rate)}`; 
-    productDiv.appendChild(rate);
-
-    //Skapar en p som innehåller land
-    const country = document.createElement('p'); 
-    country.textContent = product.country; 
-    productDiv.appendChild(country);
-
-    //Skapar en köp knapp 
-    const buyButton = document.createElement("button");
-    buyButton.textContent = "Beställ";
-    buyButton.style.width = "5rem";
-    buyButton.style.padding = ".5rem";
-    buyButton.style.borderRadius = "25px";
-    buyButton.style.border = "none";
-    productDiv.appendChild(buyButton);
-  //Returnerar diven med innehåll
-  return productDiv; 
-
 } 
 
 function displayProducts(categoryId, products) {
   // Hämta den specifika kategori-sektionen baserat på id:t som skickas in
 
-  const categorySection = document.getElementById(categoryId);
+  
 
   const categorySection = document.getElementById(categoryId).querySelector('.category');
 
