@@ -266,7 +266,7 @@ function createProductCard(product) {
 
     //Skapar en köp knapp 
     const buyButton = document.createElement("button");
-    buyButton.textContent = "Köp";
+    buyButton.textContent = "Beställ";
     buyButton.style.width = "5rem";
     buyButton.style.padding = ".5rem";
     buyButton.style.borderRadius = "25px";
@@ -293,3 +293,4 @@ displayProducts('bbqs', db.bbqs);
 displayProducts('burgers', db.burgers); 
 displayProducts('desserts', db.desserts); 
 displayProducts('drinks', db.drinks);
+
