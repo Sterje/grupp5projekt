@@ -293,3 +293,91 @@ displayProducts('bbqs', db.bbqs);
 displayProducts('burgers', db.burgers); 
 displayProducts('desserts', db.desserts); 
 displayProducts('drinks', db.drinks);
+
+// Daniels search functions.
+// Search food and drink.
+function searchMenu() {
+  const searchInput = document.getElementById('search');
+  const resultsContainer = document.getElementById('search-results');
+
+  // Event listener for what the guest is looking for. 
+  searchInput.addEventListener('input', (e) => {
+      const searchTerm = e.target.value.toLowerCase().trim();
+      filterResults(searchTerm);
+  });
+
+  // Makes it so that the form isn't sent when pressing enter.
+  searchInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+        e.preventDefault(); // Prevents a page reload.
+    }
+});
+}
+
+// Filter and show results.
+function filterResults(searchTerm) { 
+  let results = [];
+
+// If there is no search item, clear the results.
+  if (!searchTerm) {
+    document.getElementById('search-results').innerHTML = '';
+    return;
+}
+// Allows different search terms to work and get results.
+  const categoryMap = {
+        'bur': 'burgers',
+        'burg': 'burgers',
+        'burge': 'burgers',
+        'burger': 'burgers',
+        'burgers': 'burgers',
+        'bbq': 'bbqs',
+        'bbqs': 'bbqs',
+        'des': 'desserts',
+        'dess': 'desserts',
+        'desse': 'desserts',
+        'desser': 'desserts',
+        'dessert': 'desserts',
+        'desserts': 'desserts',
+        'dri': 'drinks',
+        'drin': 'drinks',
+        'drink': 'drinks',
+        'drinks': 'drinks'
+};
+// Checks if search matches a category.
+if (categoryMap[searchTerm]) {
+  results = db[categoryMap[searchTerm]];
+} else {
+      // Filter through the categories.
+      for (const category in db) {
+        if (category !== 'pagination' && Array.isArray(db[category])) {
+          const matches = db[category].filter(item =>
+              item.name.toLowerCase().includes(searchTerm)
+          );
+          results = [...results, ...matches];
+      }  
+  }
+}
+// Shows the results here.
+displayResults(results);
+}
+// This will show the results with name and picture of the menu item.
+function displayResults(results) {
+  const resultsContainer = document.getElementById('search-results');
+
+  // If nothing is found in the search.
+  if (!results || results.length === 0) {
+    resultsContainer.innerHTML = '<p>Inga resultat hittades.</p>';
+    return;
+}
+
+  // Show the results
+  resultsContainer.innerHTML = results.map(item => `
+      <article style="background: linear-gradient(135deg, #ff6b6b 0%, #ffffff 50%, #4a90e2 100%);">
+          <h3>${item.name}</h3>
+          <img src="${item.img}" alt="${item.name}" loading="lazy">
+      </article>
+  `).join('');
+}
+
+// Loads the function to be able to search.
+document.addEventListener('DOMContentLoaded', searchMenu);

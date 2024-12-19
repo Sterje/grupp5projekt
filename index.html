@@ -23,10 +23,20 @@
         </article>
     </section>
     <section class="wrapper">
+        <!-- Search function for our menu items. -->
+        <form role="search" class="search" onsubmit="return false;">
+            <!-- <label for="search">Sök i menyn:</label> -->
+            <input type="search" id="search" name="search" placeholder="Sök i menyn...">
+        </form>
+    
+        <!-- Shows the results of the search. -->
+        <section id="search-results">
+            
+        </section>
+    
    
         <nav class="nav">
             <ul class="links">
-
                 <li><a href="#bbqs">BBQ</a></li>
                 <li><a href="#burgers">Burgers</a></li>
                 <li><a href="#drinks">Drinks</a></li>
@@ -66,9 +76,10 @@
             <button id="closePopup">Fortsätt</button>
         </section>
     </section>
-    <script src="script.js"></script>
+    
     <script src="db.js"></script>
     <script src="menu.js"></script>
+    <script src="script.js"></script>
 
 </body>
 </html>
