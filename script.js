@@ -1,4 +1,5 @@
 
+<<<<<<< Updated upstream
 // Initialisera varukorgen som en tom array
 let varukorg = JSON.parse(sessionStorage.getItem('varukorg')) || [];
 
@@ -129,6 +130,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
+=======
+>>>>>>> Stashed changes
 // Funktion som kommer visa en bekräftelseruta när kunden fgör en beställning 
 
 function orderOfConfirmation(message) {

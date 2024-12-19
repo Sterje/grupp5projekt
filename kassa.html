@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="sv">
+<html lang="en">
 <head>
+<<<<<<< Updated upstream
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kassan</title>
@@ -21,16 +22,25 @@
       <button onclick="goBackToCart()" class="back-button"> Gå Tillbaka</button>
 
       <button id="clear-checkout" class="clear-button" onclick="clearCheckout()">Töm Varukorgen</button>
+=======
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kassasida</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <section class="checkout-section">
+        <h2>Din Varukorgen</h2>
+        <p id="table-number"></p>
+        <ul class="checkout-list" id="checkout-items">
+            <!-- Produkter renderas dynamiskt här -->
+        </ul>
+        <p class="checkout-total">Totalt: <span id="checkout-total">0</span> kr</p>
+        <button class="checkout-button checkout-button-back" onclick="goBackToCart()">Tillbaka till Butiken</button>
+>>>>>>> Stashed changes
     </section>
-  </main>
-
-  <!-- Sidfot -->
-  <footer class="checkout-footer">
-    <p class="footer-text">&copy; 2024 Taverna</p>
-  </footer>
-
-  <!-- JavaScript -->
-  <script src="script.js"></script> <!-- Samma JavaScript-fil -->
+    
+    <script src="menu.js"></script>
 </body>
 </html>
 

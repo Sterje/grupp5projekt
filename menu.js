@@ -195,6 +195,209 @@ const db = {
     }
   }
 
+// Initialisera varukorgen som en tom array
+let varukorg = JSON.parse(sessionStorage.getItem('varukorg')) || [];
+
+// ======================= Varukorgsfunktioner =======================
+
+// Funktion för att lägga till produkter i varukorgen
+function addToCart(produkt) {
+  console.log('Lägger till i varukorgen:', produkt); // Logga vilken produkt som läggs till
+  varukorg.push(produkt);
+  sessionStorage.setItem('varukorg', JSON.stringify(varukorg));
+  showMiniPopup(produkt);
+  updateCart();
+}
+
+// Funktion för att visa en mobilvänlig mini-popup
+function showMiniPopup(produkt) {
+  let popup = document.querySelector('.mini-popup');
+
+  if (!popup) {
+    popup = document.createElement('div');
+    popup.className = 'mini-popup';
+    popup.style.display = 'none';
+    popup.innerHTML = `
+      <div class="mini-popup-content">
+        <p> Till Din Varukorgen!</p>
+        <p>Totalt: <span id="mini-popup-total">${calculateTotal()} kr</span></p>
+        <button onclick="goToCheckout()">Till Kassan</button>
+      </div>
+    `;
+    document.body.appendChild(popup);
+  }
+
+  document.getElementById('mini-popup-total').textContent = `${calculateTotal()} kr`;
+  popup.style.display = 'block';
+}
+
+// Funktion för att räkna ut totalpris
+function calculateTotal() {
+  return varukorg.reduce((sum, item) => sum + item.price, 0).toFixed(2);
+}
+
+// Funktion för att uppdatera varukorgens visning
+function updateCart() {
+  const totalDisplay = document.getElementById('total'); // Totalpris
+  const cartItems = document.getElementById('cart-items'); // Lista med produkter
+
+  if (!totalDisplay || !cartItems) {
+    console.error('Varukorgselement saknas i DOM.');
+    return; // Säkerställ att element finns
+  }
+
+  // Töm tidigare innehåll
+  cartItems.innerHTML = '';
+
+  // Kontrollera om varukorgen är tom
+  if (varukorg.length === 0) {
+    totalDisplay.textContent = '0';
+    console.log('Varukorgen är tom.');
+    document.querySelector('.mini-popup').style.display = 'none'; // Dölj popupen
+    return;
+  }
+
+  let total = 0;
+
+  // Loopa igenom varukorgen och uppdatera visningen
+  varukorg.forEach((vara, index) => {
+    total += vara.price; // Beräkna totalpris
+
+    // Skapa listobjekt
+    const li = document.createElement('li');
+    li.textContent = `${vara.name} - ${vara.price} kr`;
+
+    // Skapa "Ta bort"-knapp för varje produkt
+    const removeButton = document.createElement('button');
+    removeButton.textContent = 'Ta bort';
+    removeButton.onclick = () => removeFromCart(index);
+    li.appendChild(removeButton);
+
+    cartItems.appendChild(li);
+  });
+
+  // Uppdatera totalpris
+  totalDisplay.textContent = total.toFixed(2);
+  console.log('Varukorgen uppdaterad:', varukorg);
+}
+
+// Funktion för att ta bort en produkt från varukorgen
+function removeFromCart(index) {
+  console.log('Tar bort produkt från varukorgen:', varukorg[index]);
+  varukorg.splice(index, 1); // Ta bort produkten från varukorgen
+  sessionStorage.setItem('varukorg', JSON.stringify(varukorg)); // Uppdatera sessionStorage
+  updateCart(); // Uppdatera visningen
+}
+
+// Funktion för att visa kassasidan som en popup
+function showCheckout() {
+  const checkoutSection = document.getElementById('checkout');
+  const cartSection = document.getElementById('cart');
+
+  if (checkoutSection && cartSection) {
+    cartSection.style.display = 'none';
+    checkoutSection.style.display = 'block';
+    console.log('Kassasidan är nu synlig.');
+    renderCheckout();
+  } else {
+    console.error('Kassasidan eller varukorgen kunde inte hittas i DOM.');
+  }
+}
+
+function goToCheckout() {
+  console.log('Navigerar till kassasidan.');
+  window.location.href = 'kassa.html'; // Navigera till kassasidan
+}
+
+
+// ======================= Kassasidan =======================
+
+function goBackToCart() {
+  window.location.href = 'index.html'; // Byt till rätt sökväg för din startsida
+}
+
+// Funktion för att tilldela ett slumpmässigt bord
+function assignRandomTable() {
+  const tableNumber = Math.floor(Math.random() * 20) + 1; // Slumpmässigt bord mellan 1 och 20
+  const tableElement = document.getElementById('table-number');
+  if (tableElement) {
+    tableElement.textContent = `Bord: ${tableNumber}`;
+  } else {
+    console.log(`Tilldelat bord: ${tableNumber}`);
+  }
+}
+
+
+// Funktion för att rendera varukorgen på kassasidan
+function renderCheckout() {
+  const checkoutItems = document.getElementById('checkout-items');
+  const checkoutTotal = document.getElementById('checkout-total');
+
+  if (!checkoutItems || !checkoutTotal) {
+    console.error('Element för kassasidan saknas i DOM.');
+    return;
+  }
+
+  // Hämta varukorgen från sessionStorage
+  let savedCart = JSON.parse(sessionStorage.getItem('varukorg')) || [];
+  let total = 0;
+
+  // Töm tidigare innehåll
+  checkoutItems.innerHTML = '';
+
+  // Loopa igenom varukorgen och rendera produkter
+  savedCart.forEach((vara, index) => {
+    total += vara.price;
+
+    const li = document.createElement('li');
+    li.textContent = `${vara.name} - ${vara.price} kr`;
+
+    const removeButton = document.createElement('button');
+    removeButton.textContent = 'Ta bort';
+    removeButton.onclick = () => removeFromCheckout(index);
+    li.appendChild(removeButton);
+
+    checkoutItems.appendChild(li);
+  });
+
+  // Uppdatera totalpris
+  checkoutTotal.textContent = total.toFixed(2);
+  console.log('Kassasidan uppdaterad:', savedCart);
+}
+
+// Funktion för att ta bort en produkt från varukorgen på kassasidan
+function removeFromCheckout(index) {
+  let savedCart = JSON.parse(sessionStorage.getItem('varukorg')) || [];
+  console.log('Tar bort produkt från kassasidan:', savedCart[index]);
+  savedCart.splice(index, 1);
+  sessionStorage.setItem('varukorg', JSON.stringify(savedCart));
+  renderCheckout();
+}
+
+// ======================= Sidinitiering =======================
+
+window.onload = () => {
+  if (window.location.href.includes('kassa.html')) {
+    console.log('Laddar kassasidan.');
+    renderCheckout();
+    assignRandomTable(); // Tilldela ett bord
+  } else {
+    console.log('Laddar förstasidan.');
+    updateCart();
+
+
+  
+
+    // Lägg till knapp för att visa kassan
+    const showCartButton = document.createElement('button');
+    showCartButton.textContent = 'Visa Kassan';
+    showCartButton.onclick = goToCheckout;
+    showCartButton.style.display = 'none'; // Dölj knappen som standard
+    document.body.appendChild(showCartButton);
+  }
+};
+
+
 const mainDishes = [...db.bbqs, ...db.burgers];
 const drinkItems = db.drinks;
 
@@ -217,4 +420,81 @@ function displayFeaturedItems() {
     `;
 }
 
+<<<<<<< Updated upstream
 window.onload = displayFeaturedItems;
+=======
+displayFeaturedItems();
+
+//Skapar en div som kommer innehålla innehåll för varje maträtt/dryck/efterrätt
+function createProductCard(product) { 
+
+  const productDiv = document.createElement('div');
+  //Ger productDiv class namn product för styling
+  productDiv.className = 'product'; 
+  //Skapar ett img element
+  const img = document.createElement('img');
+  //Src till bilden 
+  img.src = product.img; img.alt = product.name;
+  //Som läggs till i productDiv
+  productDiv.appendChild(img); 
+
+  //Skapar en h2 som kommer innehålla namnet på rätten
+  const name = document.createElement('h2'); 
+  name.textContent = product.name;
+  productDiv.appendChild(name); 
+
+  //Skapar en p som kommer innehålla beskrivning
+  const description = document.createElement('p'); 
+  description.textContent = product.dsc; 
+  productDiv.appendChild(description);
+
+  //Skapar en div för pris
+  const price = document.createElement('div'); 
+  price.className = 'price';
+  //Priset läggs till price
+  price.textContent = `$${product.price.toFixed(2)}`; 
+  productDiv.appendChild(price); 
+
+  //Skapar en div som ska innehålla rating
+  const rate = document.createElement('div'); 
+  rate.className = 'rate'; 
+  //Antal stjärnor läggs till
+  rate.textContent = `Rating: ${'⭐'.repeat(product.rate)}`; 
+  productDiv.appendChild(rate);
+
+  //Skapar en p som innehåller land
+  const country = document.createElement('p'); 
+  country.textContent = product.country; 
+  productDiv.appendChild(country);
+
+  //Skapar en köp knapp 
+  const buyButton = document.createElement("button");
+  buyButton.textContent = "Köp";
+  buyButton.style.width = "5rem";
+  buyButton.style.padding = ".5rem";
+  buyButton.style.borderRadius = "25px";
+  buyButton.style.border = "none";
+  buyButton.onclick = () => addToCart(product);
+  productDiv.appendChild(buyButton);
+//Returnerar diven med innehåll
+return productDiv; 
+} 
+
+function displayProducts(categoryId, products) {
+  // Hämta den specifika kategori-sektionen baserat på id:t som skickas in
+  const categorySection = document.getElementById(categoryId);
+
+  //Loopar igenom för varje produkt
+  products.forEach(product => {
+    //Skapar ett produktkort
+    const productCard = createProductCard(product);
+    //Lägger till produktkortet i categorySection
+    categorySection.appendChild(productCard); }); 
+  } 
+
+// Visa produkterna i respektive kategori genom att kalla på displayProducts med categoryId och products
+displayProducts('bbqs', db.bbqs); 
+displayProducts('burgers', db.burgers); 
+displayProducts('desserts', db.desserts); 
+displayProducts('drinks', db.drinks);
+>>>>>>> Stashed changes

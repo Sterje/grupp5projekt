@@ -1,5 +1,6 @@
 
 /**********************  ISmails ****************************/
+<<<<<<< Updated upstream
 
 /* Test  */
 
@@ -166,9 +167,49 @@ body.page-body .product {
 body.page-body button, body.checkout-body button {
   background-color: #447cff;
   color: #fff;
+=======
+
+/* Popup-container */
+.mini-popup {
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 400px;
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  border-radius: 12px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  display: none; /* Dold som standard */
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Inre innehåll */
+.mini-popup-content {
+  padding: 15px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.mini-popup-content p {
+  margin: 0 0 10px;
+  font-size: 14px;
+  color: #333333;
+}
+
+/* Knapp för att gå till kassan */
+.mini-popup-content button {
+  padding: 10px 20px;
+  font-size: 14px;
+  color: #ffffff;
+  background-color: #3281f7;
+>>>>>>> Stashed changes
   border: none;
-  padding: 5px 10px;
+  border-radius: 6px;
   cursor: pointer;
+<<<<<<< Updated upstream
 }
 .back-button {
   padding: 10px 20px;
@@ -256,10 +297,83 @@ body.page-body #cart p {
 
 body.checkout-body #checkout-list .product-list {
   list-style: none;
-  padding: 0;
-  margin: 0;
+=======
+  transition: background-color 0.3s ease;
+  width: 100%;
 }
 
+.mini-popup-content button:hover {
+  background-color: #0030cf;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateX(-50%) translateY(20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+  }
+  to {
+      opacity: 0;
+      transform: translateX(-50%) translateY(20px);
+  }
+}
+
+/* Smidig borttagning (om den behövs i framtiden) */
+.mini-popup.hide {
+  animation: fadeOut 0.3s ease-in-out;
+  display: none;
+}
+
+#cart {
+  display: none; /* Dölj som standard */
+}
+
+/* ==================== Kassasidan Styling ==================== */
+
+/* Kassasidan styling */
+.checkout-section {
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 600px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial', sans-serif;
+  text-align: center;
+}
+
+/* Bordnummer-styling */
+.table-number {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #3b82f6;
+  margin-bottom: 20px;
+  background-color: #f1f5fb;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Lista med varor */
+.checkout-list {
+  list-style-type: none;
+>>>>>>> Stashed changes
+  padding: 0;
+  margin: 20px 0;
+}
+
+<<<<<<< Updated upstream
 body.checkout-body #checkout-list .total-price {
   text-align: center;
   font-weight: bold;
@@ -276,6 +390,58 @@ body.checkout-body #checkout-list .clear-button {
 
 body.checkout-body #checkout-list .clear-button:hover {
   background-color: #2980b9;
+=======
+.checkout-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.checkout-list-item p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+/* Knapp-styling */
+.checkout-button {
+  display: inline-block;
+  padding: 10px 15px;
+  font-size: 1rem;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.checkout-button-back {
+  background-color: #3b82f6;
+}
+
+.checkout-button-back:hover {
+  background-color: #2563eb;
+}
+
+.checkout-button-remove {
+  background-color: #ef4444;
+}
+
+.checkout-button-remove:hover {
+  background-color: #dc2626;
+}
+
+/* Totalpris-styling */
+.checkout-total {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+  margin-top: 20px;
+>>>>>>> Stashed changes
 }
 
   /**********************  ISmails ****************************/
@@ -430,5 +596,158 @@ img {
     margin-bottom: 10px;
 }
 
+<<<<<<< Updated upstream
+=======
+/* Styling for the reviews page. */
+
+.rec-body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: linear-gradient(to top, rgb(2, 2, 132), rgb(178, 3, 3), rgb(255, 228, 228));
+}
+
+.rec-header {
+  color: black;
+  padding: 10px 20px;
+  text-align: center;
+}
+
+.rec-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000000;
+}
+
+
+section { 
+    margin-bottom: 40px; 
+    width: 100%; 
+    max-width: 1200px; 
+} 
+
+h2 { 
+    font-size: 2rem;
+    text-align: center; 
+    color: #000000; 
+    margin-bottom: 20px; 
+} 
+
+.category { 
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 20px; 
+    justify-content: center; 
+} 
+
+.product { 
+    border: 1px solid #ddd; 
+    padding: 20px; 
+    background: linear-gradient(
+        135deg,
+        #ff6b6b 0%,
+        #ffffff 50%,
+        #4a90e2 100%
+    );
+    border-radius: 5px; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+    max-width: 300px; 
+    text-align: center; 
+} 
+
+.product img { 
+    max-width: 100%; 
+    border-radius: 5px;
+} 
+
+.product h2 { 
+    font-size: 20px; 
+    margin: 10px 0; 
+} 
+
+.product p { 
+    color: #555; 
+} 
+
+.product .price { 
+    font-size: 18px; 
+    color: #b12704; 
+    margin: 10px 0; 
+} 
+
+.product .rate { 
+    color: #ff9900; 
+}
+
+
+
+.rec-main {
+  max-width: 800px;
+  margin: 20px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(
+    135deg,
+    #ff6b6b 0%,
+    #ffffff 50%,
+    #4a90e2 100%
+);
+}
+
+.rec-h1, .rec-h2 {
+  text-align: center;
+}
+
+.rec-h3 {
+  margin: 0 0 5px;
+  text-align: center;
+}
+
+.rec-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px auto;
+  text-align: center;
+  width: 100%;
+  max-width: 800px;
+}
+
+.rec-article, .rec-article-last:last-of-type {
+  padding: 10px;
+  margin: 15px auto;
+  border-radius: 5px;
+  text-align: center;
+  max-width: 600px;
+  border: 5px dotted red;
+}
+
+meter {
+  font-size: 1rem;
+  vertical-align: middle;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.rec-footer {
+  text-align: center;
+  padding: 10px;
+  color: white;
+  background-color: #000000;
+}
+
+.rec-article p, .rec-article-last p {
+  text-align: center;
+}
+
+.rec-header p {
+  text-align: center;
+}
+>>>>>>> Stashed changes
 
 
