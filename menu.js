@@ -420,13 +420,19 @@ function displayFeaturedItems() {
     `;
 }
 
-<<<<<<< Updated upstream
+
 window.onload = displayFeaturedItems;
-=======
+
 displayFeaturedItems();
+
+window.onload = displayFeaturedItems;
+
+
+
 
 //Skapar en div som kommer innehålla innehåll för varje maträtt/dryck/efterrätt
 function createProductCard(product) { 
+
 
   const productDiv = document.createElement('div');
   //Ger productDiv class namn product för styling
@@ -478,11 +484,66 @@ function createProductCard(product) {
   productDiv.appendChild(buyButton);
 //Returnerar diven med innehåll
 return productDiv; 
+
+    const productDiv = document.createElement('div');
+    //Ger productDiv class namn product för styling
+    productDiv.className = 'product'; 
+    //Skapar ett img element
+    const img = document.createElement('img');
+    //Src till bilden 
+    img.src = product.img; img.alt = product.name;
+    //Som läggs till i productDiv
+    productDiv.appendChild(img); 
+
+    //Skapar en h2 som kommer innehålla namnet på rätten
+    const name = document.createElement('h2'); 
+    name.textContent = product.name;
+    productDiv.appendChild(name); 
+  
+    //Skapar en p som kommer innehålla beskrivning
+    const description = document.createElement('p'); 
+    description.textContent = product.dsc; 
+    productDiv.appendChild(description);
+
+    //Skapar en div för pris
+    const price = document.createElement('div'); 
+    price.className = 'price';
+    //Priset läggs till price
+    price.textContent = `$${product.price.toFixed(2)}`; 
+    productDiv.appendChild(price); 
+  
+    //Skapar en div som ska innehålla rating
+    const rate = document.createElement('div'); 
+    rate.className = 'rate'; 
+    //Antal stjärnor läggs till
+    rate.textContent = `Rating: ${'⭐'.repeat(product.rate)}`; 
+    productDiv.appendChild(rate);
+
+    //Skapar en p som innehåller land
+    const country = document.createElement('p'); 
+    country.textContent = product.country; 
+    productDiv.appendChild(country);
+
+    //Skapar en köp knapp 
+    const buyButton = document.createElement("button");
+    buyButton.textContent = "Beställ";
+    buyButton.style.width = "5rem";
+    buyButton.style.padding = ".5rem";
+    buyButton.style.borderRadius = "25px";
+    buyButton.style.border = "none";
+    productDiv.appendChild(buyButton);
+  //Returnerar diven med innehåll
+  return productDiv; 
+
 } 
 
 function displayProducts(categoryId, products) {
   // Hämta den specifika kategori-sektionen baserat på id:t som skickas in
+
   const categorySection = document.getElementById(categoryId);
+
+  const categorySection = document.getElementById(categoryId).querySelector('.category');
+
 
   //Loopar igenom för varje produkt
   products.forEach(product => {
@@ -497,4 +558,95 @@ displayProducts('bbqs', db.bbqs);
 displayProducts('burgers', db.burgers); 
 displayProducts('desserts', db.desserts); 
 displayProducts('drinks', db.drinks);
->>>>>>> Stashed changes
+
+
+
+// Daniels search functions.
+// Search food and drink.
+function searchMenu() {
+  const searchInput = document.getElementById('search');
+  const resultsContainer = document.getElementById('search-results');
+
+  // Event listener for what the guest is looking for. 
+  searchInput.addEventListener('input', (e) => {
+      const searchTerm = e.target.value.toLowerCase().trim();
+      filterResults(searchTerm);
+  });
+
+  // Makes it so that the form isn't sent when pressing enter.
+  searchInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+        e.preventDefault(); // Prevents a page reload.
+    }
+});
+}
+
+// Filter and show results.
+function filterResults(searchTerm) { 
+  let results = [];
+
+// If there is no search item, clear the results.
+  if (!searchTerm) {
+    document.getElementById('search-results').innerHTML = '';
+    return;
+}
+// Allows different search terms to work and get results.
+  const categoryMap = {
+        'bur': 'burgers',
+        'burg': 'burgers',
+        'burge': 'burgers',
+        'burger': 'burgers',
+        'burgers': 'burgers',
+        'bbq': 'bbqs',
+        'bbqs': 'bbqs',
+        'des': 'desserts',
+        'dess': 'desserts',
+        'desse': 'desserts',
+        'desser': 'desserts',
+        'dessert': 'desserts',
+        'desserts': 'desserts',
+        'dri': 'drinks',
+        'drin': 'drinks',
+        'drink': 'drinks',
+        'drinks': 'drinks'
+};
+// Checks if search matches a category.
+if (categoryMap[searchTerm]) {
+  results = db[categoryMap[searchTerm]];
+} else {
+      // Filter through the categories.
+      for (const category in db) {
+        if (category !== 'pagination' && Array.isArray(db[category])) {
+          const matches = db[category].filter(item =>
+              item.name.toLowerCase().includes(searchTerm)
+          );
+          results = [...results, ...matches];
+      }  
+  }
+}
+// Shows the results here.
+displayResults(results);
+}
+// This will show the results with name and picture of the menu item.
+function displayResults(results) {
+  const resultsContainer = document.getElementById('search-results');
+
+  // If nothing is found in the search.
+  if (!results || results.length === 0) {
+    resultsContainer.innerHTML = '<p>Inga resultat hittades.</p>';
+    return;
+}
+
+  // Show the results
+  resultsContainer.innerHTML = results.map(item => `
+      <article style="background: linear-gradient(135deg, #ff6b6b 0%, #ffffff 50%, #4a90e2 100%);">
+          <h3>${item.name}</h3>
+          <img src="${item.img}" alt="${item.name}" loading="lazy">
+      </article>
+  `).join('');
+}
+
+// Loads the function to be able to search.
+document.addEventListener('DOMContentLoaded', searchMenu);
+
+

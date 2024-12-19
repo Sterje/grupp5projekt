@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
 <head>
     <link rel="stylesheet" href="styles.css">
     <meta charset="UTF-8">
@@ -14,53 +14,54 @@
     </header>
     <section class="featured" id="featured">
         <article class="food">
-            <h2 class="food-drink-name">Featured Food</h2>
+            <h2 class="food-drink-name">Månadens Maträtt</h2>
             <p id="featured-food"></p>
         </article>
         <article class="drink">
-            <h2 class="food-drink-name">Featured Drink</h2>
+            <h2 class="food-drink-name">Månadens Drink</h2>
             <p id="featured-drink"></p>
         </article>
     </section>
     <section class="wrapper">
+        <!-- Search function for our menu items. -->
+        <form role="search" class="search" onsubmit="return false;">
+            <!-- <label for="search">Sök i menyn:</label> -->
+            <input type="search" id="search" name="search" placeholder="Sök i menyn...">
+        </form>
+    
+        <!-- Shows the results of the search. -->
+        <section id="search-results">
+            
+        </section>
+    
    
         <nav class="nav">
             <ul class="links">
-                <li><a href="#bbq-h3">BBQ</a></li>
-                <li><a href="#burgers-h3">Burgers</a></li>
-                <li><a href="#drinks-h3">Drinks</a></li>
-                <li><a href="#desserts-h3">Desserts</a></li>
+                <li><a href="#bbqs">BBQ</a></li>
+                <li><a href="#burgers">Burgers</a></li>
+                <li><a href="#drinks">Drinks</a></li>
+                <li><a href="#desserts">Desserts</a></li>
+                <li><a href="recensioner.html">Recensioner</a></li>
             </ul>    
         </nav>
-        <article class="category">
-            <h3 class="h3" id="bbq-h3">BBQ</h3>
-        </article>
-        <article class="food-content" id="bbq">
-            <!-- Här hamnar BBQ innehållet-->
-             <!-- Jag tänker att när vi loopar igenom listan skapar vi en section för varje rätt -->
-        </article>
-        <article class="category">
-            <h3 class="h3" id="burgers-h3">Burgers</h3>
-        </article>
-        <article class="food-content" id="burgers">
-            <!-- Här hamnar burgers innehållet-->
-            <!-- Jag tänker att när vi loopar igenom listan skapar vi en section för varje rätt -->
-        </article>
-        <article class="category">
-            <h3 class="h3" id="drinks-h3">Drinks</h3>
-        </article>
-        <article class="food-content" id="drinks">
-            <!-- Här hamnar drinks innehållet-->
-            <!-- Jag tänker att när vi loopar igenom listan skapar vi en section för varje rätt -->
-        </article>
-        <article class="category">
-            <h3 class="h3" id="desserts-h3">Desserts</h3>
-        </article>
-        <article class="food-content" id="desserts">
-            <!-- Här hamnar desserts innehållet-->
-            <!-- Jag tänker att när vi loopar igenom listan skapar vi en section för varje rätt -->
-        </article>
-    </section>
+
+        <section id="bbqs"> 
+            <h2 class="h2-category">BBQs</h2> 
+            <div class="category"></div> 
+        </section> 
+        <section id="burgers"> 
+            <h2 class="h2-category">Burgers</h2> 
+            <div class="category"></div> 
+        </section> 
+        <section id="desserts"> 
+            <h2 class="h2-category">Desserts</h2> 
+            <div class="category"></div> 
+        </section> 
+        <section id="drinks"> 
+            <h2 class="h2-category">Drinks</h2> 
+            <div class="category"></div> 
+        </section>
+
 
     <section id="myPopup" class="popup">
         <section class="popup-content">
@@ -77,6 +78,7 @@
             <button id="closePopup">Fortsätt</button>
         </section>
     </section>
+
     
     <section id="cart">
         <h2>Din Varukorg</h2>
@@ -85,10 +87,21 @@
         </ul>
         <p>Totalpris: <span id="total">0</span> kr</p>
     </section>
+
+
+    <footer class="vFooter"> 
+       <div class="footer-content"> 
+        <p>&copy; 2024 Tavern Amerikans BBQ, Lunch mellan 11-14, middag 17-22.</p>
+        <p>Följ oss både på <a href="#"> Facebook</a> eller <a href="#">Instagram </a></p>
+       </div>
+    </footer>
+
     
-    <script src="script.js"></script>
+
+
     <script src="db.js"></script>
     <script src="menu.js"></script>
+    <script src="script.js"></script>
 
 </body>
 </html>
