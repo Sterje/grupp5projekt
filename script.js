@@ -57,6 +57,12 @@ function goToCheckout() {
 
 // ======================= Kassasidans Funktioner =======================
 
+// Funktion för att gå tillbaka till varukorgssidan
+function goBackToCart() {
+  window.location.href = 'cart.html'; // Navigera till varukorgssidan
+}
+
+
 // Funktion för att visa varukorgen på kassasidan
 function renderCheckout() {
   const checkoutItems = document.getElementById('checkout-items'); // Lista med produkter
@@ -112,16 +118,32 @@ function clearCheckout() {
 
 // ======================= Initiering =======================
 
-// Kör vid sidladdning
 document.addEventListener('DOMContentLoaded', () => {
   if (window.location.href.includes('kassa.html')) {
     // Om vi är på kassasidan
     renderCheckout();
+
+    // Kontrollera om ett bordnummer redan finns
+    let bordNummer = sessionStorage.getItem('bordNummer');
+
+    // Om inget bordnummer finns, generera ett nytt
+    if (!bordNummer) {
+      bordNummer = Math.floor(Math.random() * 12) + 1; // 1-12
+      console.log('Genererat bordnummer:', bordNummer); // För felsökning
+      sessionStorage.setItem('bordNummer', bordNummer); // Spara bordnummer i sessionStorage
+    }
+
+    // Visa bordnumret på sidan
+    const bordElement = document.getElementById('bord-number');
+    if (bordElement) {
+      bordElement.textContent = `Bord: ${bordNummer}`; // Visa det sparade bordnumret
+    }
   } else {
     // Om vi är på förstasidan
     updateCart();
   }
 });
+
 
 
 
@@ -141,6 +163,9 @@ function orderOfConfirmation(message) {
         confirmView.remove();
     }, 3000);
 }
+
+
+
 
 function popup () {
         myPopup.classList.add("show");
