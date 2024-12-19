@@ -1,5 +1,341 @@
 
+/**********************  ISmails ****************************/
+/* Grundinställningar */
+.cart-body .checkout-body {
+  font-family: Arial, sans-serif;
+  margin: 20px 20px 90px;
+  background-color: #f9f9f9;
+}
+
+.cart-body h1, .page-body h2,
+.checkout-body h1, .checkout-body h2 {
+  text-align: center;
+}
+
+/* Anpassning för mobila enheter */
+@media screen and (max-width: 768px) {
+  .cart-body header, .checkout-body header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+
+  .cart-body, .checkout-body {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .cart-body header h1, .checkout-body header h1 {
+    font-size: 20px;
+  }
+  @media screen and (max-width: 480px) {
+    header h1 {
+      font-size: 20px;
+    }
+    body {
+      font-size: 14px;
+    }
+  }
+
+
+  
+  /* Varukorg och produktlista */
+  #product-list, #cart {
+    margin: 20px auto;
+    max-width: 600px;
+  }
+  .cart-body, .checkout-body {
+    font-size: 14px;
+  }
+}
+
+/* Varukorg och produktlista */
+.cart-body #product-list, .cart-body #cart,
+.checkout-body #checkout-list {
+  margin: 20px auto;
+  max-width: 600px;
+}
+
+.cart-body .product {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid #ddd;
+  margin: 10px 0;
+  padding: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* General button styling */
+.cart-body button, .checkout-body button {
+  background-color: #447cff;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+.back-button {
+  padding: 10px 20px;
+  background-color: #2562f2; /* Grön bakgrund */
+  color: white; /* Vit text */
+  text-decoration: none; /* Ta bort understrykning */
+  border-radius: 5px; /* Rundade hörn */
+  font-size: 16px;
+  margin-top: 20px; /* Lite avstånd från övriga knappar */
+}
+
+.back-button:hover {
+  background-color: #1d4dda; /* Mörkare grön vid hover */
+}
+
+/* Remove all hover effects */
+.cart-body button:hover, .checkout-body button:hover {
+  background-color: #3498db; /* Keep it the same solid blue */
+}
+
+/* Specifik stil för knappar */
+.cart-body #cart-items button {
+  background-color: #e74c3c; /* Röd färg */
+}
+
+.cart-body #cart-items button:hover {
+  background-color: #c0392b;
+}
+
+.cart-body #cart button.clear {
+  background-color: #3498db; /* Blå färg */
+}
+
+ .cart-body #cart button.clear:hover {
+  background-color: #2980b9;
+}
+
+/* Stil för varukorgen längst ner */
+.cart-body #cart {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #ffffff;
+  border-top: 2px solid #ddd;
+  padding: 10px;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+  display: none;
+  z-index: 1000;
+  max-height: 160px;
+  overflow-y: auto;
+}
+
+.cart-body #cart h2 {
+  margin: 0 0 8px;
+  font-size: 1rem;
+  text-align: center;
+  color: #333;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 5px;
+}
+
+.cart-body #cart-items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cart-body #cart-items li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  border-bottom: 1px solid #f0f0f0;
+  padding-bottom: 5px;
+}
+
+.cart-body #cart p {
+  margin: 10px 0 5px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+/* ==================== Kassasidan Styling ==================== */
+
+/* Kroppsstyling */
+.checkout-body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  padding: 20px;
+  margin: 0;
+}
+
+/* Sidhuvud */
+.checkout-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.checkout-header .page-title {
+  font-size: 2rem;
+  color: #447cff;
+}
+
+/* Sektion för kassa */
+.checkout-section {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto 20px auto;
+}
+
+/* Produkter i varukorgen */
+.checkout-section .product-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.checkout-section .product-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.checkout-section .product-list li:last-child {
+  border-bottom: none;
+}
+
+.checkout-section .product-list img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-right: 15px;
+}
+
+.checkout-section .product-list div {
+  display: flex;
+  align-items: center;
+}
+
+/* Totalpris */
+.checkout-section .total-price {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 20px;
+  color: #2562f2;
+}
+
+/* Knappar */
+.checkout-section .back-button,
+.checkout-section .clear-button {
+  background-color: #2562f2;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 10px;
+}
+
+.checkout-section .back-button:hover {
+  background-color: #1d4dda;
+}
+
+.checkout-section .clear-button {
+  background-color: #e74c3c;
+}
+
+.checkout-section .clear-button:hover {
+  background-color: #c0392b;
+}
+
+/* Bordnummer */
+.checkout-section .bord-info {
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Sidfot */
+.checkout-footer {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 0.9rem;
+  color: #777;
+}
+
+/* Sidfot längst ner på sidan */
+.checkout-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #f4f4f9;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 0.9rem;
+  color: #777;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Skugga ovanför sidfoten */
+}
+
+
+  /**********************  ISmails ****************************/
+
+  
+
+
+.confirmView {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 1rem;
+    background-color: green;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    font-size: 1rem;
+    z-index: 1000;
+    animation: fade-in-out 3s ease-in-out;
+}
+
+@keyframes fade-in-out {
+    0% {
+        opacity: 0;
+        transform: translateY(-10);
+    }
+    10%, 90% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+  }
+
 * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    line-height: 1.5rem;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+
+  * {
+
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -22,6 +358,9 @@
     padding: 15px;
     max-width: 600px;
     margin: 0 auto;
+    background: url(img/us-flag-7468031_1280.jpg);
+    background-position: center;
+    background-size: cover;
 }
 /* Using a nice tri-colored gradient for the backgrounds of featured food and drink. */
 .food, .drink {
@@ -90,170 +429,7 @@ img {
     }
 }
 
-/* Grundinställningar */
 
-  
-/*   body {
-    font-family: Arial, sans-serif;
-    margin: 20px 20px 90px;
-    background-color: #f9f9f9;
-  } */
-  
-/*   h1, h2 {
-    text-align: center;
-  }
-  
-  /* Anpassning för mobila enheter */
-/*   @media screen and (max-width: 768px) {
-    header {
-      flex-direction: column;
-      align-items: flex-start;
-      padding: 10px;
-    }
-    body {
-      font-size: 16px;
-    }
-  }
-  
-  @media screen and (max-width: 480px) {
-    header h1 {
-      font-size: 20px;
-    }
-    body {
-      font-size: 14px;
-    }
-  } */ 
-
-
-  
-  /* Varukorg och produktlista */
-  #product-list, #cart {
-    margin: 20px auto;
-    max-width: 600px;
-  }
-  
-  .product {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #ffffff;
-    border: 1px solid #ddd;
-    margin: 10px 0;
-    padding: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
-  
-/* General button styling */
-button {
-    background-color: #447cff;
-    color: #fff;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-  }
-  
-  /* Remove all hover effects */
-  button:hover {
-    background-color: #3498db; /* Keep it the same solid blue */
-  }
-  
-  
-  
-  /* Specifik stil för knappar */
-  #cart-items button {
-    background-color: #e74c3c; /* Röd färg */
-  }
-  
-  #cart-items button:hover {
-    background-color: #c0392b;
-  }
-  
-  #cart button.clear {
-    background-color: #3498db; /* Blå färg */
-  }
-  
-  #cart button.clear:hover {
-    background-color: #2980b9;
-  }
-  
-  /* Stil för varukorgen längst ner */
-  #cart {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: #ffffff;
-    border-top: 2px solid #ddd;
-    padding: 10px;
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
-    display: none;
-    z-index: 1000;
-    max-height: 160px;
-    overflow-y: auto;
-  }
-  
-  #cart h2 {
-    margin: 0 0 8px;
-    font-size: 1rem;
-    text-align: center;
-    color: #333;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 5px;
-  }
-  
-  #cart-items {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  #cart-items li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 8px;
-    font-size: 0.9rem;
-    border-bottom: 1px solid #f0f0f0;
-    padding-bottom: 5px;
-  }
-  
-  #cart p {
-    margin: 10px 0 5px;
-    text-align: center;
-    font-weight: bold;
-    font-size: 0.9rem;
-  }
-  
-
-
-.confirmView {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    padding: 1rem;
-    background-color: green;
-    color: white;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    font-size: 1rem;
-    z-index: 1000;
-    animation: fade-in-out 3s ease-in-out;
-}
-
-@keyframes fade-in-out {
-    0%{
-        opacity: 0;
-        transform: translateY(-10);
-    }
-    10%, 90% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    100% {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-}
 
 
 
@@ -280,12 +456,10 @@ button {
     
 }
 
+
 .featured {
     height: 50vh;
     width: 100%;
-    background: url(img/us-flag-7468031_1280.jpg);
-    background-position: top;
-    background-size: cover;
 }
 
 .info {
