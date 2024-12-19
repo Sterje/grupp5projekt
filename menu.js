@@ -420,19 +420,10 @@ function displayFeaturedItems() {
     `;
 }
 
-
-window.onload = displayFeaturedItems;
-
 displayFeaturedItems();
-
-window.onload = displayFeaturedItems;
-
-
-
 
 //Skapar en div som kommer innehålla innehåll för varje maträtt/dryck/efterrätt
 function createProductCard(product) { 
-
 
   const productDiv = document.createElement('div');
   //Ger productDiv class namn product för styling
@@ -488,11 +479,7 @@ return productDiv;
 
 function displayProducts(categoryId, products) {
   // Hämta den specifika kategori-sektionen baserat på id:t som skickas in
-
-  
-
-  const categorySection = document.getElementById(categoryId).querySelector('.category');
-
+  const categorySection = document.getElementById(categoryId);
 
   //Loopar igenom för varje produkt
   products.forEach(product => {
