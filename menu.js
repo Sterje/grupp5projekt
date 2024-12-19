@@ -407,6 +407,22 @@ if (finishPurchaseButton) {
   });
 }
 
+// Get all radio inputs and their corresponding stars
+const ratingInputs = document.querySelectorAll('input[name="rating"]');
+const stars = document.querySelectorAll('.rating-star');
+
+// Add an event listener to each input
+ratingInputs.forEach((input, index) => {
+  input.addEventListener('change', () => {
+    // Reset all stars to their default size
+    stars.forEach(star => star.classList.remove('selected'));
+
+    // Highlight the selected star
+    stars[index].classList.add('selected');
+  });
+});
+
+
 
 const mainDishes = [...db.bbqs, ...db.burgers];
 const drinkItems = db.drinks;
