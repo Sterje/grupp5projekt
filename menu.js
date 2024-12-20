@@ -104,13 +104,13 @@ const db = {
       "country": "Dayton, OH"
     },
     {
-      "id": "world-famous-banana-pudding-party-sized",
-      "img": "https://goldbelly.imgix.net/uploads/showcase_media_asset/image/84893/world-famous-banana-pudding-bowl-64-oz.85af650f8f51512f8f3181a11d6587d6.jpg?ixlib=react-9.0.2&auto=format&ar=1%3A1",
-      "name": "Magnolia Bakery",
-      "dsc": "World Famous Banana Pudding Bowl (64 oz.)",
-      "price": 56,
+      "id": "best-seller-cupcake-dozen",
+      "img": "https://goldbelly.imgix.net/uploads/showcase_media_asset/image/94478/best-seller-cupcake-dozen.f93b21993f6a2da11c975d45b9b0d08f.jpg?ixlib=react-9.0.2&auto=format&ar=1%3A1",
+      "name": "Crave Cupcakes",
+      "dsc": "Best Seller Cupcake Dozen",
+      "price": 89,
       "rate": 4,
-      "country": "New York, NY"
+      "country": "Houston, TX"
     },
     {
       "id": "jacques-world-famous-chocolate-chip-cookies",
