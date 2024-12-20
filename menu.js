@@ -194,6 +194,7 @@ const db = {
       "drinks": 5
     }
   }
+// Daniels featured food and drink section.
 
 const mainDishes = [...db.bbqs, ...db.burgers];
 const drinkItems = db.drinks;
@@ -347,7 +348,7 @@ function filterResults(searchTerm) {
 if (categoryMap[searchTerm]) {
   results = db[categoryMap[searchTerm]];
 } else {
-      // Filter through the categories.
+      // Filter through the categories and ignore pagination.
       for (const category in db) {
         if (category !== 'pagination' && Array.isArray(db[category])) {
           const matches = db[category].filter(item =>
@@ -370,7 +371,7 @@ function displayResults(results) {
     return;
 }
 
-  // Show the results
+  // Shows the results.
   resultsContainer.innerHTML = results.map(item => `
       <article style="background: linear-gradient(135deg, #ff6b6b 0%, #ffffff 50%, #4a90e2 100%);">
           <h3>${item.name}</h3>
