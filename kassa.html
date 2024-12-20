@@ -7,13 +7,16 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <!-- Sektion för kassan -->
     <section class="checkout-section">
         <h2>Din Varukorg</h2>
         <p id="table-number"></p>
         <ul class="checkout-list" id="checkout-items">
             <!-- Produkter renderas dynamiskt här -->
         </ul>
+            <!-- Visar det totala priset för alla varor i kassan -->
         <p class="checkout-total">Totalt: <span id="checkout-total">0</span> kr</p>
+            <!-- Knapp för att navigera tillbaka till butiken -->
         <button class="checkout-button checkout-button-back" onclick="goBackToCart()">Tillbaka till Butiken</button>
         <!-- Knapp för att navigera till betygssidan -->
     <button class="checkout-button finish-purchase-button" id="finish-purchase-button">
