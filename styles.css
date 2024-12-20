@@ -1,82 +1,48 @@
 
 /**********************  ISmails ****************************/
-/* Grundinställningar */
-.cart-body .checkout-body {
-  font-family: Arial, sans-serif;
-  margin: 20px 20px 90px;
-  background-color: #f9f9f9;
+
+/* Popup-container */
+.mini-popup {
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 400px;
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  border-radius: 12px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  display: none; /* Dold som standard */
+  animation: fadeIn 0.3s ease-in-out;
 }
 
-.cart-body h1, .page-body h2,
-.checkout-body h1, .checkout-body h2 {
+/* Inre innehåll */
+.mini-popup-content {
+  padding: 15px;
   text-align: center;
+  font-family: Arial, sans-serif;
+}
+/* Styla alla <p>-element med klassen .mini-popup-content */
+.mini-popup-content p {
+  margin: 0 0 10px;
+  font-size: 14px;
+  color: #333333;
 }
 
-/* Anpassning för mobila enheter */
-@media screen and (max-width: 768px) {
-  .cart-body header, .checkout-body header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-
-  .cart-body, .checkout-body {
-    font-size: 16px;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .cart-body header h1, .checkout-body header h1 {
-    font-size: 20px;
-  }
-  @media screen and (max-width: 480px) {
-    header h1 {
-      font-size: 20px;
-    }
-    body {
-      font-size: 14px;
-    }
-
-
-
-  
-  /* Varukorg och produktlista */
-  #product-list, #cart {
-    margin: 20px auto;
-    max-width: 600px;
-  }
-  .cart-body, .checkout-body {
-    font-size: 14px;
-  }
-}
-
-/* Varukorg och produktlista */
-.cart-body #product-list, .cart-body #cart,
-.checkout-body #checkout-list {
-  margin: 20px auto;
-  max-width: 600px;
-}
-
-.cart-body .product {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #ffffff;
-  border: 1px solid #ddd;
-  margin: 10px 0;
-  padding: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-/* General button styling */
-.cart-body button, .checkout-body button {
-  background-color: #447cff;
-  color: #fff;
+/* Knapp för att gå till kassan */
+.mini-popup-content button {
+  padding: 10px 20px;
+  font-size: 14px;
+  color: #ffffff;
+  background-color: #3281f7;
   border: none;
-  padding: 5px 10px;
+  border-radius: 6px;
   cursor: pointer;
 }
-.back-button {
+
+  .back-button {
   padding: 10px 20px;
   background-color: #2562f2; /* Grön bakgrund */
   color: white; /* Vit text */
@@ -90,75 +56,6 @@
   background-color: #1d4dda; /* Mörkare grön vid hover */
 }
 
-/* Remove all hover effects */
-.cart-body button:hover, .checkout-body button:hover {
-  background-color: #3498db; /* Keep it the same solid blue */
-}
-
-/* Specifik stil för knappar */
-.cart-body #cart-items button {
-  background-color: #e74c3c; /* Röd färg */
-}
-
-.cart-body #cart-items button:hover {
-  background-color: #c0392b;
-}
-
-.cart-body #cart button.clear {
-  background-color: #3498db; /* Blå färg */
-}
-
- .cart-body #cart button.clear:hover {
-  background-color: #2980b9;
-}
-
-/* Stil för varukorgen längst ner */
-.cart-body #cart {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background-color: #ffffff;
-  border-top: 2px solid #ddd;
-  padding: 10px;
-  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
-  display: none;
-  z-index: 1000;
-  max-height: 160px;
-  overflow-y: auto;
-}
-
-.cart-body #cart h2 {
-  margin: 0 0 8px;
-  font-size: 1rem;
-  text-align: center;
-  color: #333;
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 5px;
-}
-
-.cart-body #cart-items {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.cart-body #cart-items li {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 8px;
-  font-size: 0.9rem;
-  border-bottom: 1px solid #f0f0f0;
-  padding-bottom: 5px;
-}
-
-.cart-body #cart p {
-  margin: 10px 0 5px;
-  text-align: center;
-  font-weight: bold;
-  font-size: 0.9rem;
-}
 
 /* ==================== Kassasidan Styling ==================== */
 
@@ -194,106 +91,248 @@
 /* Produkter i varukorgen */
 .checkout-section .product-list {
   list-style: none;
-  padding: 0;
-  margin: 0;
+  transition: background-color 0.3s ease;
+  width: 100%;
 }
 
-.checkout-section .product-list li {
+/* Ändrar bakgrundsfärgen på knappen i popupen vid hover */
+.mini-popup-content button:hover {
+  background-color: #0030cf;
+}
+
+ /* Animering för att gradvis visa .mini-popup med en rörelse uppåt */ 
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateX(-50%) translateY(20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+  }
+  to {
+      opacity: 0;
+      transform: translateX(-50%) translateY(20px);
+  }
+}
+
+/* Smidig borttagning (om den behövs i framtiden) */
+.mini-popup.hide {
+  animation: fadeOut 0.3s ease-in-out;
+  display: none;
+}
+
+#cart {
+  display: none; /* Dölj som standard */
+}
+
+/* ==================== Kassasidan Styling ==================== */
+
+/* Kassasidan styling */
+.checkout-section {
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 600px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial', sans-serif;
+  text-align: center;
+}
+
+/* Bordnummer-styling */
+.table-number {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #3b82f6;
+  margin-bottom: 20px;
+  background-color: #f1f5fb;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Lista med varor */
+.checkout-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+/* Styling för varje enskild vara i listan */
+.checkout-list-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 0;
-  border-bottom: 1px solid #ddd;
-}
-
-.checkout-section .product-list li:last-child {
-  border-bottom: none;
-}
-
-.checkout-section .product-list img {
-  width: 50px;
-  height: 50px;
-  object-fit: cover;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
   border-radius: 5px;
-  margin-right: 15px;
 }
 
-.checkout-section .product-list div {
-  display: flex;
-  align-items: center;
-}
-
-/* Totalpris */
-.checkout-section .total-price {
-  font-size: 1.5rem;
-  font-weight: bold;
-  text-align: center;
-  margin-top: 20px;
-  color: #2562f2;
-}
-
-/* Knappar */
-.checkout-section .back-button,
-.checkout-section .clear-button {
-  background-color: #2562f2;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
+/* Text i varje vara i listan */
+.checkout-list-item p {
+  margin: 0;
   font-size: 1rem;
+}
+
+/* Knapp-styling */
+.checkout-button {
+  background-color: rgb(112, 244, 110);
+  display: inline-block;
+  padding: 10px 15px;
+  font-size: 1rem;
+  color: white;
+  border: none;
+  border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.3s;
-  margin-top: 10px;
+  transition: background-color 0.3s ease;
 }
 
-.checkout-section .back-button:hover {
-  background-color: #1d4dda;
+.checkout-button-back {
+  background-color: #3b82f6; /* Sätter en blå bakgrundsfärg för back-knappen */
 }
 
-.checkout-section .clear-button {
-  background-color: #e74c3c;
+.checkout-button-back:hover {
+  background-color: #2563eb;/* Ändrar till en mörkare blå färg när muspekaren är över knappen */
 }
 
-.checkout-section .clear-button:hover {
-  background-color: #c0392b;
+.checkout-button-remove {
+  background-color: #ef4444;/* Sätter en röd bakgrundsfärg för remove-knappen */
 }
 
-/* Bordnummer */
-.checkout-section .bord-info {
+.checkout-button-remove:hover {
+  background-color: #dc2626; /* Ändrar till en mörkare röd färg när muspekaren är över knappen */
+}
+
+/* Totalpris-styling */
+.checkout-total {
   font-size: 1.2rem;
   font-weight: bold;
+  color: #333;
+  margin-top: 20px;
+}
+
+/* Centrera rating-container */
+.rating-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 400px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+/* Rubrikens styling */
+.rating-header {
   text-align: center;
   margin-bottom: 20px;
   color: #333;
+  font-size: 1.8rem;
 }
 
-/* Sidfot */
-.checkout-footer {
-  text-align: center;
-  margin-top: 40px;
-  font-size: 0.9rem;
-  color: #777;
+/*  Styling for Fieldset och legend */
+.rating-fieldset {
+  border: none;
+  margin-bottom: 20px;
 }
 
-/* Sidfot längst ner på sidan */
-.checkout-footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
+.rating-legend {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+/* Styling för stjärnor */
+.rating-stars {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 20px;
+  padding: 0;
+}
+
+/* Varje stjärna som en del av betygslistan */
+.rating-stars li {
+  display: inline-flex;
+  align-items: center;
+  list-style: none;
+}
+
+/* Styling för varje enskild stjärna */
+.rating-star {
+  font-size: 1.5rem;
+  color: #ffcc00;
+  cursor: pointer;
+  transition: transform 0.3s ease, font-size 0.3s ease;
+}
+
+/* Stjärnor vid hover */
+.rating-stars label:hover .rating-star {
+  transform: scale(1.2);
+}
+
+/* Gör den valda stjärnan större */
+input[type="radio"]:checked + .rating-star {
+  font-size: 2rem;
+  transform: scale(1.3);
+}
+
+/* Dölj standard radioknappar */
+input[type="radio"] {
+  display: none;
+}
+
+/* Textarea styling */
+.comment-input {
   width: 100%;
-  background-color: #f4f4f9;
-  text-align: center;
-  padding: 10px 0;
-  font-size: 0.9rem;
-  color: #777;
-  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Skugga ovanför sidfoten */
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  margin-bottom: 20px;
+  resize: vertical;
 }
 
+/* Knappens styling */
+.submit-button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
 
-  /**********************  ISmails ****************************/
+.submit-button:hover {
+  background-color: #0056b3; /* Ändrar bakgrundsfärgen till en mörkare blå när muspekaren är över knappen. */
+}
 
-  
+/* Styling för valt betyg */
+.selected-rating {
+  margin-top: 10px; /* Lägger ett mellanrum ovanför elementet. */
+  font-size: 1.2rem; /* Gör texten lite större än standardstorleken. */
+  color: #333; /* Ställer in textfärgen till en mörkgrå nyans. */
+  font-weight: bold; /* Gör texten fet. */
+  text-align: center; /* Centrerar texten horisontellt. */
+}
 
+/**********************  ISmails ****************************/
 
 .confirmView {
     position: fixed;
@@ -324,6 +363,7 @@
     }
   }
 
+  /* Global inställning */
 * {
     margin: 0;
     padding: 0;
@@ -333,30 +373,13 @@
 
 }
 
-
-  * {
-
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    line-height: 1.5rem;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
+/* Styling för body */
 body {
     background-image: url(img/us-flag-7468031_12802.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-}
-
-.page {
-    font-family: Arial, sans-serif;
-    max-width: 100%;
-    margin: 0 auto;
-    padding: 10px;
-    background-color: #f5f5f5;
 }
 
 .featured {
@@ -366,9 +389,7 @@ body {
     padding: 15px;
     max-width: 600px;
     margin: 0 auto;
-    /* background: url(img/us-flag-7468031_1280.jpg); */
-    background-position: center;
-    background-size: cover;
+    
 }
 /* Using a nice tri-colored gradient for the backgrounds of featured food and drink. */
 .food, .drink {
@@ -400,47 +421,7 @@ img {
     margin-bottom: 10px;
 }
 
-/* For tablets and larger. */
-/* @media screen and (min-width: 768px) {
-    section {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: stretch;
-        gap: 30px;
-    }
-
-    article {
-        width: 50%;
-    }
-} */
-
-/* For smaller screens. */
-/* @media screen and (max-width: 320px) {
-    body {
-        padding: 5px;
-    }
-
-    section {
-        padding: 10px;
-    }
-
-    article {
-        padding: 10px;
-    }
-
-    h2 {
-        font-size: 1.2rem;
-    }
-
-    h3 {
-        font-size: 1rem;
-    }
-} */
-
-
-
-
-
+/* Styling för wrapper som är en container */
 .wrapper {
   display: flex;
   flex-direction: column;
@@ -448,6 +429,7 @@ img {
    
 }
 
+/* Styling för header */
 .header {
     display: flex;
     justify-content: center;
@@ -455,43 +437,42 @@ img {
     
 }
 
+/* Styling för logo */
 .logo {
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 .logo img {
-    height: 30%;
-    width: 30%;
-    
+    height: 50%;
+    width: 50%;
 }
 
-
-.featured {
-    height: 50vh;
-    width: 100%;
-}
-
-.info {
-    padding: 1rem;
-}
-
+/* Styling för länkar */
 .links {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-evenly;
+    background-color: rgb(0, 123, 255, 0.5);
 }
 
-.category {
-    display: flex;
-    justify-content: center;
+/* Styling för sektionen där maträtterna visas */
+.food-category {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 20px;
 }
 
+/* Styling för listan som är länkarna */
 ul {
     list-style: none;
     font-size: 1.5rem;
     margin-bottom: 1rem;
 }
 
+/* Styling för popup rutan spm visas när sidan startas */
 .popup {
     position: fixed;
     z-index: 1;
@@ -533,22 +514,18 @@ a {
     color: rgb(0, 0, 0);
 }
 
+/* Styling för h2 rubriken vid varje kategori */
+.h2-category {
+  background-color: rgba(255, 37, 18, 0.5);
+  margin: 1rem;
+}
+
 #closePopup {
     cursor: pointer;
     padding: 1rem;
     width: 40%;
     background-color: bisque;
     border-radius: 25px;
-
-}
-
-
-img {
-    width: 100%;
-    max-width: 300px;
-    height: auto;
-    border-radius: 8px;
-    margin-bottom: 10px;
 }
 
 /* Styling for the reviews page. */
@@ -575,13 +552,6 @@ img {
   background-color: #000000;
 }
 
-
-section { 
-    margin-bottom: 40px; 
-    width: 100%; 
-    max-width: 1200px; 
-} 
-
 h2 { 
     font-size: 2rem;
     text-align: center; 
@@ -589,13 +559,7 @@ h2 {
     margin-bottom: 20px; 
 } 
 
-.category { 
-    display: flex; 
-    flex-wrap: wrap; 
-    gap: 20px; 
-    justify-content: center; 
-} 
-
+/* Styling för elementet där maträtterna visas */
 .product { 
     border: 1px solid #ddd; 
     padding: 20px; 
@@ -611,32 +575,39 @@ h2 {
     text-align: center; 
 } 
 
+/* Maträttens bild */
 .product img { 
     max-width: 100%; 
     border-radius: 5px;
 } 
 
+/* Maträttens namn */
 .product h2 { 
     font-size: 20px; 
     margin: 10px 0; 
 } 
 
+/* Maträttens land och beskrivning */
 .product p { 
     color: #555; 
 } 
 
+/* Maträttens pris */
 .product .price { 
     font-size: 18px; 
     color: #b12704; 
     margin: 10px 0; 
 } 
 
+/* Maträttens betyg */
 .product .rate { 
     color: #ff9900; 
 }
 
+
 /* Daniels styling for the review page. */
 /* Wanted the overall style to match the main page. */
+
 .rec-main {
   max-width: 800px;
   margin: 20px auto;
@@ -721,6 +692,28 @@ meter {
   -1px 1px 2px black;
 }
 
+.vFooter {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 20px 10px;
+  margin-top: 20px;
+}
+
+.vFooter a {
+  color: #ff9800;
+  text-decoration: none;
+}
+
+.vFooter a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .vFooter-conten {
+    font-size: 14px;
+    line-height: 1.5;
+  }
 }
 
 /* Daniels search fucntion styling. */
@@ -785,3 +778,4 @@ meter {
   transform: translateY(-1px);
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
 }
+

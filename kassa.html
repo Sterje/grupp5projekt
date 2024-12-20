@@ -1,37 +1,30 @@
 <!DOCTYPE html>
-<html lang="sv">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kassan</title>
-  <link rel="stylesheet" href="styles.css"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kassasida</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body class="checkout-body">
-  <!-- Sidhuvud -->
-  <header class="checkout-header">
-    <h1 class="page-title">Din Varukorg</h1>
-  </header>
-
-  <!-- Huvudinnehåll -->
-  <main id="checkout-main">
-    <section id="checkout-list" class="checkout-section">
-      <h2 class="section-title">Valda Produkter</h2>
-      <p id="bord-number" class="bord-info"></p>
-      <ul id="checkout-items" class="product-list"></ul> <!-- Lista för att visa produkter -->
-      <p class="total-price">Totalt: <span id="checkout-total" class="total-amount">0</span> kr</p> <!-- Totalpris -->
-      <button onclick="goBackToCart()" class="back-button"> Gå Tillbaka</button>
-
-      <button id="clear-checkout" class="clear-button" onclick="clearCheckout()">Töm Varukorgen</button>
+<body>
+  <!-- Sektion för kassan -->
+    <section class="checkout-section">
+        <h2>Din Varukorg</h2>
+        <p id="table-number"></p>
+        <ul class="checkout-list" id="checkout-items">
+            <!-- Produkter renderas dynamiskt här -->
+        </ul>
+            <!-- Visar det totala priset för alla varor i kassan -->
+        <p class="checkout-total">Totalt: <span id="checkout-total">0</span> kr</p>
+            <!-- Knapp för att navigera tillbaka till butiken -->
+        <button class="checkout-button checkout-button-back" onclick="goBackToCart()">Tillbaka till Butiken</button>
+        <!-- Knapp för att navigera till betygssidan -->
+    <button class="checkout-button finish-purchase-button" id="finish-purchase-button">
+      Slutför ditt köp
+    </button>
     </section>
-  </main>
-
-  <!-- Sidfot -->
-  <footer class="checkout-footer">
-    <p class="footer-text">&copy; 2024 Taverna</p>
-  </footer>
-
-  <!-- JavaScript -->
-  <script src="script.js"></script> <!-- Samma JavaScript-fil -->
+    
+    <script src="menu.js"></script>
 </body>
 </html>
 

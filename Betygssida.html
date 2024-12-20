@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Betygssida</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <article class="rating-container">
+    <header class="rating-header">
+      <h1>Ge oss ditt betyg</h1>
+    </header>
+
+    <form id="rating-form" class="rating-form">
+      <fieldset class="rating-fieldset">
+        <legend class="rating-legend">Hur vill du betygsätta din upplevelse?</legend>
+
+        <ul class="rating-stars">
+          <li>
+            <label>
+                <input type="radio" name="rating" value="1">
+              <span class="rating-star">1.&#9733;</span>
+            </label>
+          </li>
+          <li>
+            <label>
+                <input type="radio" name="rating" value="2">
+              <span class="rating-star">2.&#9733;</span>
+            </label>
+          </li>
+          <li>
+            <label>
+                <input type="radio" name="rating" value="3">
+              <span class="rating-star">3.&#9733;</span>
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="rating" value="4">
+              <span class="rating-star">4.&#9733;</span>
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="rating" value="5">
+              <span class="rating-star">5.&#9733;</span>
+            </label>
+          </li>
+        </ul>
+      </fieldset>
+
+      <label for="comment" class="comment-label">Lämna en kommentar:</label>
+      <textarea id="comment" name="comment" class="comment-input" rows="4" placeholder="Skriv din kommentar här..."></textarea>
+
+      <button type="submit" class="submit-button">Skicka</button>
+    </form>
+  </article>
+</body>
+</html>
+
