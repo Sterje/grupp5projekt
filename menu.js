@@ -196,6 +196,7 @@ const db = {
 // Daniels featured food and drink section.
 
 }
+}
 
 // Initialisera varukorgen som en tom array
 let varukorg = JSON.parse(sessionStorage.getItem('varukorg')) || [];
