@@ -605,6 +605,8 @@ h2 {
 }
 
 
+/* Daniels styling for the review page. */
+/* Wanted the overall style to match the main page. */
 
 .rec-main {
   max-width: 800px;
@@ -639,7 +641,7 @@ h2 {
   width: 100%;
   max-width: 800px;
 }
-
+/* Calling a little extra attention to the reviews with a dotted border. */
 .rec-article, .rec-article-last:last-of-type {
   padding: 10px;
   margin: 15px auto;
@@ -678,7 +680,7 @@ meter {
 .rec-p-grade {
   font-size: 18px;
 }
-
+/* the star symbols were not eye-catching, gave them a better look. */
 .stars {
   font-size: 20px;
   color: gold;
@@ -720,7 +722,7 @@ meter {
     justify-content: center;
     margin: 20px 0;
 }
-
+/* Special styling of the search bar because the default is not fun to look at. */
 .search input {
     width: 300px;
     padding: 15px 20px;
@@ -731,7 +733,7 @@ meter {
     font-size: 16px;
     transition: all 0.3s ease;
 }
-
+/* Search results show up in a grid, seemed like a nice way to get the results. */
 #search-results {
   display: grid;
   gap: 1rem;
@@ -756,7 +758,7 @@ meter {
   margin: 0.5rem 0;
 }
 
-/* Special styling of the search bar because the default is not fun to look at. */
+/* Just some effects when hovering over the search bar and when actually clicking into it. */
 .search input:focus {
   outline: none;
   width: 350px;
