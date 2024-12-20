@@ -24,7 +24,7 @@
   text-align: center;
   font-family: Arial, sans-serif;
 }
-
+/* Styla alla <p>-element med klassen .mini-popup-content */
 .mini-popup-content p {
   margin: 0 0 10px;
   font-size: 14px;
@@ -44,11 +44,12 @@
   width: 100%;
 }
 
+/* Ändrar bakgrundsfärgen på knappen i popupen vid hover */
 .mini-popup-content button:hover {
   background-color: #0030cf;
 }
 
-/* Animation */
+ /* Animering för att gradvis visa .mini-popup med en rörelse uppåt */ 
 @keyframes fadeIn {
   from {
       opacity: 0;
@@ -114,6 +115,7 @@
   margin: 20px 0;
 }
 
+/* Styling för varje enskild vara i listan */
 .checkout-list-item {
   display: flex;
   justify-content: space-between;
@@ -125,6 +127,7 @@
   border-radius: 5px;
 }
 
+/* Text i varje vara i listan */
 .checkout-list-item p {
   margin: 0;
   font-size: 1rem;
@@ -144,19 +147,19 @@
 }
 
 .checkout-button-back {
-  background-color: #3b82f6;
+  background-color: #3b82f6; /* Sätter en blå bakgrundsfärg för back-knappen */
 }
 
 .checkout-button-back:hover {
-  background-color: #2563eb;
+  background-color: #2563eb;/* Ändrar till en mörkare blå färg när muspekaren är över knappen */
 }
 
 .checkout-button-remove {
-  background-color: #ef4444;
+  background-color: #ef4444;/* Sätter en röd bakgrundsfärg för remove-knappen */
 }
 
 .checkout-button-remove:hover {
-  background-color: #dc2626;
+  background-color: #dc2626; /* Ändrar till en mörkare röd färg när muspekaren är över knappen */
 }
 
 /* Totalpris-styling */
@@ -189,7 +192,7 @@
   font-size: 1.8rem;
 }
 
-/* Fieldset och legend */
+/*  Styling for Fieldset och legend */
 .rating-fieldset {
   border: none;
   margin-bottom: 20px;
@@ -209,12 +212,14 @@
   padding: 0;
 }
 
+/* Varje stjärna som en del av betygslistan */
 .rating-stars li {
   display: inline-flex;
   align-items: center;
   list-style: none;
 }
 
+/* Styling för varje enskild stjärna */
 .rating-star {
   font-size: 1.5rem;
   color: #ffcc00;
@@ -264,16 +269,16 @@ input[type="radio"] {
 }
 
 .submit-button:hover {
-  background-color: #0056b3;
+  background-color: #0056b3; /* Ändrar bakgrundsfärgen till en mörkare blå när muspekaren är över knappen. */
 }
 
 /* Styling för valt betyg */
 .selected-rating {
-  margin-top: 10px;
-  font-size: 1.2rem;
-  color: #333;
-  font-weight: bold;
-  text-align: center;
+  margin-top: 10px; /* Lägger ett mellanrum ovanför elementet. */
+  font-size: 1.2rem; /* Gör texten lite större än standardstorleken. */
+  color: #333; /* Ställer in textfärgen till en mörkgrå nyans. */
+  font-weight: bold; /* Gör texten fet. */
+  text-align: center; /* Centrerar texten horisontellt. */
 }
 
 
